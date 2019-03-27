@@ -50,18 +50,9 @@ if ($conn->query($insr1) === TRUE) {
 <input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
 <input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
 <input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
-<input type="submit" name="submit1" value="Submit"/>
+<!-- <input type="submit" name="submit1" value="Submit"/> -->
 </form></div>
-<?php
-if(isset($_POST['submit1'])){//to run PHP script on submit
-if(!empty($_POST['job_list'])){
-// Loop to store and display values of individual checked checkbox.
-foreach($_POST['job_list'] as $selected){
-echo $selected."</br>";
-}
-}
-}
-?>
+
            </div>
            <br>
         <label>Editing Manager</label>
@@ -75,7 +66,7 @@ echo $selected."</br>";
 <input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
 <input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
 <input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
-<input type="submit" name="submit2" value="Submit"/>
+<!-- <input type="submit" name="submit2" value="Submit"/> -->
 </form></div></br>
             <label>Reviewer</label>
            <input class="form-control" type="text" name="rev">
@@ -88,7 +79,7 @@ echo $selected."</br>";
 <input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
 <input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
 <input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
-<input type="submit" name="submit3" value="Submit"/>
+<!-- <input type="submit" name="submit3" value="Submit"/> -->
 </form></div></br>
             <label>Chapter Chief Editor</label>
            <input class="form-control" type="text" name="cce">
@@ -101,13 +92,17 @@ echo $selected."</br>";
 <input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
 <input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
 <input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
-<input type="submit" name="submit4" value="Submit"/>
+<!-- <input type="submit" name="submit4" value="Submit"/> -->
 </form></div></br>
-              <label>Committee President </label>
-           <input class="form-control" type="text" name="cp"> 
-      <input type="submit"  name="Insert" id="Insert">
+
+      
       <div>
 <form action="#" method="post">
+<!-- <label> -->
+        <!-- <input type="text" name="Committee_President" id="Committee_President" /> -->
+        <!-- </label> -->
+              <label  for="Committee_President" >Committee President </label>
+           <input class="form-control" type="text" name="email"> 
 <input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
 <input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
 <input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
@@ -115,11 +110,32 @@ echo $selected."</br>";
 <input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
 <input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
 <input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
-<input type="submit" name="submit5" value="Submit"/>
+<input type="submit" name="submit" value="Submit"/>
 </form></div></br>
         
     </form>
+    <?php
+    $structure=array();
+    if(isset($_POST['submit'])){
+        $role_id= "select R_id from roles where R_name = '" . $_POST['Committee_President']."'";
+        echo  $role_id ;
+    
+    
+    $role1=array("R_id"=>$role_id,"email"=>$_POST['email'],"func"=>$_POST['job_list[]']);
+   $structure($role1);
+   echo $structure;
+    
 
+
+// if(isset($_POST['submit'])){//to run PHP script on submit
+// if(!empty($_POST['job_list'])){
+// Loop to store and display values of individual checked checkbox.
+// foreach($_POST['job_list'] as $selected){
+// echo $selected."</br>";
+// }
+// }
+}
+?>
     
 </body>
 </html>
