@@ -1,11 +1,16 @@
-
 <!DOCTYPE html>
 
 <html>
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <!-- <link rel="stylesheet" href="createS.css"> -->
+</head>
+
 <body>
 
 <?php
- require 'PHPMailerAutoload.php';
+
 
 $servername = "localhost";
 $username = "root";
@@ -20,103 +25,102 @@ if ($conn->connect_error) {
 } 
 if(isset($_GET['Insert'])){
 $insr1= "insert into journal (name,email) values ('" . $_GET['name'] . "', '" . $_GET['email'] . "')";
-    
-//  if  (mail($_GET['email'],"welcome","hello this is the first message"))
-//  {
-//      echo"mail sent !";
-//  }
-//    else {echo "fail";}
-}
-//$from = 'ranabenmahmoud2@gmail.com';
-//$to = 'ranabenmahmoud@gmail.com';
-//$subject = 'Hi!';
-//$body = "Hi,\n\nHow are you?";
-//
-//$headers = array(
-//    'From' => $from,
-//    'To' => $to,
-//    'Subject' => $subject
-//);
-//
-//$smtp = Mail::factory('smtp', array(
-//        'host' => 'ssl://smtp.gmail.com',
-//        'port' => '465',
-//        'auth' => true,
-//        'username' => 'ranabenmahmoud@gmail.com',
-//        'password' => ''
-//    ));
-//
-//$mail = $smtp->send($to, $headers, $body);
-//
-//if (PEAR::isError($mail)) {
-//    echo('<p>' . $mail->getMessage() . '</p>');
-//} else {
-//    echo('<p>Message successfully sent!</p>');
-//}
 
+}
 
 if ($conn->query($insr1) === TRUE) {
     echo "New record created successfully";
-//    $admin_email = "someone@example.com"; //from
-//  $email = $_GET['email']; //to
-//  $subject = "hi";
-//  $comment = "hello"; //message
-//  
-//  //send email
-//  mail($email, "$subject", $comment, "From:" . $admin_email);
 
-//$mail = new PHPMailer;
-//
-//$mail->isSMTP();                            // Set mailer to use SMTP
-//$mail->Host = 'smtp.gmail.com';             // Specify main and backup SMTP servers
-//$mail->SMTPAuth = true;                     // Enable SMTP authentication
-//$mail->Username = 'ranabenmahmoud@gmail.com';          // SMTP username
-//$mail->Password = ''; // SMTP password
-//$mail->SMTPSecure = 'tls';                  // Enable TLS encryption, `ssl` also accepted
-//$mail->Port = 587;                          // TCP port to connect to
-//
-//$mail->setFrom('rana@inspirelll.com', 'CodexWorld');
-//$mail->addReplyTo('rana@inspirelll.com', 'CodexWorld');
-//$mail->addAddress('ranabenmahmoud@gmail.com.com');   // Add a recipient
-////$mail->addCC('cc@example.com');
-////$mail->addBCC('bcc@example.com');
-//
-//$mail->isHTML(true);  // Set email format to HTML
-//
-//$bodyContent = '<h1>How to Send Email using PHP in Localhost by CodexWorld</h1>';
-//$bodyContent .= '<p>This is the HTML email sent from localhost using PHP script by <b>CodexWorld</b></p>';
-//
-//$mail->Subject = 'Email from Localhost by CodexWorld';
-//$mail->Body    = $bodyContent;
-//
-//if(!$mail->send()) {
-//    echo 'Message could not be sent.';
-//    echo 'Mailer Error: ' . $mail->ErrorInfo;
-//} else {
-//    echo 'Message has been sent';
-//}
-    
 } else {
     echo "Error: " . $insr1 . "<br>" . $conn->error;
 }
 
-$conn->close();
+
 ?>
     <span>Now choose you're structure</span>
-       <form action="" method="get">
+       <form action="" method="post">
         
         <label>Correspondence Author</label>
            <input class="form-control" type="text" name="ca">
+           <div>
+<form action="#" method="post">
+<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
+<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
+<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
+<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
+<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
+<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
+<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
+<input type="submit" name="submit1" value="Submit"/>
+</form></div>
+<?php
+if(isset($_POST['submit1'])){//to run PHP script on submit
+if(!empty($_POST['job_list'])){
+// Loop to store and display values of individual checked checkbox.
+foreach($_POST['job_list'] as $selected){
+echo $selected."</br>";
+}
+}
+}
+?>
+           </div>
+           <br>
         <label>Editing Manager</label>
            <input class="form-control" type="text" name="em">
+           <div>
+<form action="#" method="post">
+<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
+<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
+<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
+<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
+<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
+<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
+<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
+<input type="submit" name="submit2" value="Submit"/>
+</form></div></br>
             <label>Reviewer</label>
            <input class="form-control" type="text" name="rev">
+           <div>
+<form action="#" method="post">
+<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
+<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
+<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
+<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
+<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
+<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
+<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
+<input type="submit" name="submit3" value="Submit"/>
+</form></div></br>
             <label>Chapter Chief Editor</label>
            <input class="form-control" type="text" name="cce">
+           <div>
+<form action="#" method="post">
+<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
+<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
+<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
+<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
+<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
+<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
+<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
+<input type="submit" name="submit4" value="Submit"/>
+</form></div></br>
               <label>Committee President </label>
-           <input class="form-control" type="text" name="cp">
-<!--       <input type="submit"  name="Insert" id="Insert">-->
+           <input class="form-control" type="text" name="cp"> 
+      <input type="submit"  name="Insert" id="Insert">
+      <div>
+<form action="#" method="post">
+<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
+<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
+<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
+<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
+<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
+<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
+<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
+<input type="submit" name="submit5" value="Submit"/>
+</form></div></br>
         
     </form>
+
+    
 </body>
 </html>
