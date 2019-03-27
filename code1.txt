@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<?php include 'dbconn.php'; ?>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>home</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="cc.css">
+</head>
+<body>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- create checkboxes for reviewers name  -->
+<form action="">
+<?php
+$sql = "SELECT  First_Name FROM members"; //get reviewers names from db
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) { ?>    <!-- output data of each row -->
+ 
+    <?php
+        echo "<input type='checkbox' value='{$row['First_Name']}'>" . $row['First_Name'] . '</br>';
+    }
+} else {
+    echo "No Reviwers to show";}
+  
+?>
+</form>
+<form action="">
+<?php  
+
+$sql = "SELECT Title FROM papers"; //get papers titles from db
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    
+    while($row = $result->fetch_assoc()) {
+        echo "<p>" . $row['Title'] . '</p>';
+    }}
+
+        // $conn->close();
+?>
+</form>
+
+<!-- read templet file -->
+<?php
+$sql = "SELECT cont FROM emails_temp"; //get papers titles from db
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    
+    while($row = $result->fetch_assoc()) {
+       
+
+        echo $row['cont'];
+
+        $myfile = fopen($row['cont'], "r") or die("Unable to open file!");
+        echo fread($myfile,filesize($row['cont']));
+        
+        fclose($myfile);
+
+
+         // another way to get text file from database 
+        
+        // $fileName = $row['type'];
+        // $fileContents = file_get_contents($fileName);
+        // echo $fileContents;
+
+    }}
+
+
+?> 
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="jj.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
