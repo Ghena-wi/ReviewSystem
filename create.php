@@ -11,7 +11,6 @@
 <body>
 
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -34,189 +33,166 @@ if ($conn->query($insr1) === TRUE) {
 } else {
     echo "Error: " . $insr1 . "<br>" . $conn->error;
 }
-
-
 ?>
+
     <span>Now choose you're structure</span>
-       <form action="" method="post">
-        
-        <label>Correspondence Author</label>
-           <input class="form-control" type="email" name="ca"  id="caemail">
-           <!-- <div> -->
-<!-- <form action="#" method="post"> -->
-<input type="checkbox" name="job_list[]" value="Create journal" id="cj" class="Checkbox"><label>Create journal</label><br/>
-<input type="checkbox" name="job_list[]" value="Classification" id="c" class="Checkbox"><label>Classification</label><br/>
-<input type="checkbox" name="job_list[]" value="Review" id="r" class="Checkbox"><label>Review</label><br/>
-<input type="checkbox" name="job_list[]" value="Make decision" id="md" class="Checkbox"><label>Make decision</label><br/>
-<input type="checkbox" name="job_list[]" value="Make reports" id="mr" class="Checkbox"><label>Make reports</label><br/>
-<input type="checkbox" name="job_list[]" value="Request reviewers" id="rr" class="Checkbox"><label>Request reviewers</label><br/>
-<input type="checkbox" name="job_list[]" value="Selection of reviewers" id="sr" class="Checkbox"><label>Selection of reviewers</label><br/>
-<!-- <input type="submit" name="submit1" value="Submit"/> -->
-<button type="button" id="test" value="click" onclick="loadDoc()">Change Content</button>
-<button type="button" id="reset" value="click" onclick="resetcheckboxes()">Reset</button>
 
-<!-- <input type="button" id="test" value="click"> -->
-<!-- </form></div> -->
-<div id="demo"></div>
+    <!-- ////////////////////////////////////////////Committee President///////////////////////////////////////// -->
+    
+    <form action="" method="post">
+        <label id="cp">Committee President</label>
+        <input type="email" name="cp"  id="cpemail"><br/>
+     
+        <input type="checkbox" value="Paper managment" id="pmc" class="Checkbox" ><label id="pml" >Paper managment</label><br/>
+        <!-- <input type="checkbox" value="Review" id="rc" class="Checkbox"><label id="rl">Review</label><br/> -->
+        <input type="checkbox" value="Make paper decision" id="mdc" class="Checkbox"><label id="mdl" >Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mrc" class="Checkbox" checked="true"><label id="mrl" >Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rrc" class="Checkbox" checked="true"><label id="rrl" >Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="src" class="Checkbox"><label id="srl">Selection of reviewers</label><br/>
 
- <label id="ca">Correspondence Author</label>
-           <input class="ca" type="email" name="ca" id="caemail">
-           <!-- <div> -->
-<!-- <form action="#" method="post"> -->
-<input type="checkbox" name="job_list[]" value="Create journal" id="cj1c" class="Checkbox1"><label  id="cj1l">Create journal</label><br/>
-<input type="checkbox" name="job_list[]" value="Classification" id="c1c" class="Checkbox1"><label id="c1l">Classification</label><br/>
-<input type="checkbox" name="job_list[]" value="Review" id="r1c" class="Checkbox1"><label id="r1l">Review</label><br/>
-<input type="checkbox" name="job_list[]" value="Make decision" id="md1c" class="Checkbox1"><label id="md1l">Make decision</label><br/>
-<input type="checkbox" name="job_list[]" value="Make reports" id="mr1c" class="Checkbox1"><label id="mr1l">Make reports</label><br/>
-<input type="checkbox" name="job_list[]" value="Request reviewers" id="rr1c" class="Checkbox1"><label id="rr1l">Request reviewers</label><br/>
-<input type="checkbox" name="job_list[]" value="Selection of reviewers" id="sr1c" class="Checkbox1"><label id="sr1l">Selection of reviewers</label><br/>
-<!-- <input type="submit" name="submit1" value="Submit"/> -->
-<button type="button" id="test" value="click" onclick="loadDoc1()">Change Content</button>
-<!-- <input type="button" id="test" value="click"> -->
-<!-- </form></div> -->
-<div id="demo"></div>
+        <button type="button" id="test" value="click" onclick="loadDoc()">Done</button>
+        <button type="button" id="reset" value="click" onclick="resetcheckboxes()">Reset</button>
+
+    <div id="demo"></div>
+
+ <!-- ////////////////////////////////////////////Editing Manager///////////////////////////////////////////////// -->
+    
+
+        <label id="em">Editing Manager</label>
+        <input type="email" name="em" id="ememail"><br/>
+
+        <input type="checkbox" value="Paper managment" id="pm1c" class="Checkbox1"><label id="pm1l">Paper managment</label><br/>
+        <!-- <input type="checkbox" value="Review" id="r1c" class="Checkbox1"><label id="r1l">Review</label><br/> -->
+        <input type="checkbox" value="Make paper decision" id="md1c" class="Checkbox1"><label id="md1l">Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mr1c" class="Checkbox1" disabled = true><label id="mr1l">Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rr1c" class="Checkbox1" disabled = true><label id="rr1l">Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="sr1c" class="Checkbox1"><label id="sr1l">Selection of reviewers</label><br/>
+
+        <button type="button" id="test1" value="click" onclick="loadDoc1()">Done</button>
+        <button type="button" id="reset1" value="click" onclick="resetcheckboxes1()">Reset</button>
+
+<div id="demo1"></div>
+
+
+ <!-- ////////////////////////////////////////////Chapter Chief Editor///////////////////////////////////////////////// -->
+    
+
+ <label id="cce">Chapter Chief Editor</label>
+        <input type="email" name="cce" id="cceemail"><br/>
+
+        <input type="checkbox" value="Paper managment" id="pm2c" class="Checkbox2"><label id="pm2l">Paper managment</label><br/>
+        <!-- <input type="checkbox" value="Review" id="r2c" class="Checkbox2"><label id="r2l">Review</label><br/> -->
+        <input type="checkbox" value="Make paper decision" id="md2c" class="Checkbox2"><label id="md2l">Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mr2c" class="Checkbox2" disabled = true><label id="mr2l">Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rr2c" class="Checkbox2" disabled = true><label id="rr2l">Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="sr2c" class="Checkbox2"><label id="sr2l">Selection of reviewers</label><br/>
+
+        <button type="button" id="test1" value="click" onclick="loadDoc2()">Done</button>
+        <button type="button" id="reset1" value="click" onclick="resetcheckboxes2()">Reset</button>
+
+<div id="demo2"></div>
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
-
-// $('#test').click(function() {
-// var func1 = ($('.Checkbox:checked').map(function() {
-//     return this.value;
-// }).get().join(', '));
-// });
-
+////////////////////////////////////Committee President functions //////////////////////////////////////
 function loadDoc() {
-    var email1 = document.getElementById("caemail").value ;
-    var role1 = document.getElementById("ca").innerHTML ;
+    var email1 = document.getElementById("cpemail").value ;
+    var role1 = document.getElementById("cp").innerHTML ;
     var func1 = ($('.Checkbox:checked').map(function() {
     return this.value; }).get().join(','));
 
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
+    var xhttp = new XMLHttpRequest();
+     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        var r=this.responseText;
-        console.log(r);
-       var funn = r.split(',');
-    //    for(var x=0;x<funn.length;x++){
-    //        console.log(funn[x]);}
-       document.getElementById("demo").innerHTML=funn;
+         var r=this.responseText;
+         console.log(r);
+         var funn = r.split(',');
+         document.getElementById("demo").innerHTML=funn;
       
        for(var x=0;x<funn.length;x++){
-        // console.log(funn[x]);
-    if(funn[x] == document.getElementById("cj1l").innerHTML ){ document.getElementById("cj1c").disabled = true;}
-    else if(funn[x] == document.getElementById("c1l").innerHTML ){ document.getElementById("c1c").disabled = true;}
-     else if( funn[x] ==  document.getElementById("r1l").innerHTML   ){
-        document.getElementById("r1c").disabled = true;
-     }else if( funn[x] ==  document.getElementById("md1l").innerHTML   ){
-        document.getElementById("md1c").disabled = true;
-     }else if( funn[x] ==  document.getElementById("mr1l").innerHTML){
-        document.getElementById("mr1c").disabled = true;
-     }else if( funn[x] ==  document.getElementById("rr1l").innerHTML   ){
-        document.getElementById("rr1c").disabled = true;
-     }else if( funn[x] ==  document.getElementById("sr1l").innerHTML   ){
-        document.getElementById("sr1c").disabled = true;
-     }
-    } } 
+       
+        if(funn[x] == document.getElementById("pml").innerHTML){
+            document.getElementById("pm1c").disabled = true;
+            document.getElementById("pm2c").disabled = true;
+
+        // }else if( funn[x] ==  document.getElementById("rl").innerHTML){
+            // document.getElementById("r1c").disabled = true;
+            // document.getElementById("r2c").disabled = true;
+
+        }else if( funn[x] ==  document.getElementById("mdl").innerHTML){
+            document.getElementById("md1c").disabled = true;
+            document.getElementById("md2c").disabled = true;
+
+        }else if( funn[x] ==  document.getElementById("mrl").innerHTML){
+            document.getElementById("mr1c").disabled = true;
+            document.getElementById("mr2c").disabled = true;
+
+        }else if( funn[x] ==  document.getElementById("rrl").innerHTML){
+            document.getElementById("rr1c").disabled = true;
+            document.getElementById("rr2c").disabled = true;
+
+        }else if( funn[x] ==  document.getElementById("srl").innerHTML){
+            document.getElementById("sr1c").disabled = true;
+            document.getElementById("sr2c").disabled = true;
+
+        }
+        } 
+    } 
   };
   xhttp.open("GET", "fun.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
   xhttp.send();
 }
 
 function resetcheckboxes() {
-    document.getElementById("cj").checked = true;
-    document.getElementById("c").checked = false;
-    document.getElementById("r").checked = false;
-    document.getElementById("md").checked = false;
-    document.getElementById("mr").checked = true;
-    document.getElementById("rr").checked = true;
-    document.getElementById("sr").checked = false;
+    document.getElementById("pmc").checked = false;
+    document.getElementById("pm1c").disabled = false
+    document.getElementById("pm2c").disabled = false
+
+    // document.getElementById("rc").checked = false;
+    // document.getElementById("r1c").disabled = false;
+    // document.getElementById("r2c").disabled = false;
+
+    document.getElementById("mdc").checked = false;
+    document.getElementById("md1c").disabled = false
+    document.getElementById("md2c").disabled = false
+
+    document.getElementById("mrc").checked = true;
+    document.getElementById("mr1c").disabled = true;    
+    document.getElementById("mr2c").disabled = true;    
+
+    document.getElementById("rrc").checked = true;
+    document.getElementById("rr1c").disabled = true;  
+    document.getElementById("rr2c").disabled = true;    
+      
+    document.getElementById("src").checked = false;
+    document.getElementById("sr1c").disabled = false; 
+    document.getElementById("sr2c").disabled = false;    
+
+   
+
+    }
     
-}
+
 </script>
 
-<!-- 
-           </div>
-           <br>
-        <label>Editing Manager</label>
-           <input class="form-control" type="text" name="em">
-           <div>
-<form action="#" method="post">
-<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
-<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
-<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
-<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
-<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
-<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
-<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/> -->
-<!-- <input type="submit" name="submit2" value="Submit"/> -->
-<!-- </form></div></br>
-            <label>Reviewer</label>
-           <input class="form-control" type="text" name="rev">
-           <div>
-<form action="#" method="post">
-<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
-<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
-<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
-<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
-<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
-<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
-<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/> -->
-<!-- <input type="submit" name="submit3" value="Submit"/> -->
-<!-- </form></div></br>
-            <label>Chapter Chief Editor</label>
-           <input class="form-control" type="text" name="cce">
-           <div>
-<form action="#" method="post">
-<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
-<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
-<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
-<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
-<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
-<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
-<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/> -->
-<!-- <input type="submit" name="submit4" value="Submit"/> -->
-<!-- </form></div></br>
-
-      
-      <div>
-<form action="#" method="post"> -->
-<!-- <label> -->
-        <!-- <input type="text" name="Committee_President" id="Committee_President" /> -->
-        <!-- </label> -->
-              <!-- <label  for="Committee_President" >Committee President </label>
-           <input class="form-control" type="text" name="email"> 
-<input type="checkbox" name="job_list[]" value="Create journal"><label>Create journal</label><br/>
-<input type="checkbox" name="job_list[]" value="Classification"><label>Classification</label><br/>
-<input type="checkbox" name="job_list[]" value="Review"><label>Review</label><br/>
-<input type="checkbox" name="job_list[]" value="Make decision"><label>Make decision</label><br/>
-<input type="checkbox" name="job_list[]" value="Make reports"><label>Make reports</label><br/>
-<input type="checkbox" name="job_list[]" value="Request reviewers"><label>Request reviewers</label><br/>
-<input type="checkbox" name="job_list[]" value="Selection of reviewers"><label>Selection of reviewers</label><br/>
-<input type="submit" name="submit" value="Submit"/>
-</form></div></br> -->
-        
-    
-    <?php
-//     $structure=array();
-//     if(isset($_POST['submit'])){
-//         $role_id= "select R_id from roles where R_name = '" . $_POST['Committee_President']['Committee President']."'";
-//         echo  $role_id ;
-    
-    
-//     $role1=array("R_id"=>$role_id,"email"=>$_POST['email'],"func"=>$_POST['job_list[]']);
-//    $structure($role1);
-//    echo $structure;
-    
 
 
-// if(isset($_POST['submit'])){//to run PHP script on submit
-// if(!empty($_POST['job_list'])){
-// Loop to store and display values of individual checked checkbox.
-// foreach($_POST['job_list'] as $selected){
-// echo $selected."</br>";
-// }
-// }
-// }
-?>
 
- -->   
+
+
+
+
+
+</form>
 </body>
 </html>
