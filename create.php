@@ -88,23 +88,24 @@ function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("demo").innerHTML = this.responseText;
-     if(  document.getElementById("cj1l").innerHTML ==  this.responseText ){
-        document.getElementById("cj1c").disabled = true;
-     }else if(  document.getElementById("c1l").innerHTML ==  this.responseText ){
-        document.getElementById("c1c").disabled = true;
-     }else if(  document.getElementById("r1l").innerHTML ==  this.responseText ){
+       var funn = this.responseText.split(',');
+       for (var i = 0; i < funn.length; i++) { 
+    if(funn[i] ==document.getElementById("cj1l").innerHTML ){ document.getElementById("cj1c").disabled = true;}
+    else if(funn[i] ==document.getElementById("c1l").innerHTML ){ document.getElementById("c1c").disabled = true;}
+
+
+     else if(  document.getElementById("r1l").innerHTML ==  funn[i]){
         document.getElementById("r1c").disabled = true;
-     }else if(  document.getElementById("md1l").innerHTML ==  this.responseText ){
+     }else if(  document.getElementById("md1l").innerHTML ==  funn[i]){
         document.getElementById("md1c").disabled = true;
-     }else if(  document.getElementById("mr1l").innerHTML ==  this.responseText ){
+     }else if(  document.getElementById("mr1l").innerHTML ==  funn[i]){
         document.getElementById("mr1c").disabled = true;
-     }else if(  document.getElementById("rr1l").innerHTML ==  this.responseText ){
+     }else if(  document.getElementById("rr1l").innerHTML ==  funn[i]){
         document.getElementById("rr1c").disabled = true;
-     }else if(  document.getElementById("sr1l").innerHTML ==  this.responseText ){
+     }else if(  document.getElementById("sr1l").innerHTML ==  funn[i]){
         document.getElementById("sr1c").disabled = true;
      }
-    }
+    } } 
   };
   xhttp.open("GET", "fun.php?func1="+func1, true);
   xhttp.send();
