@@ -61,13 +61,13 @@ if ($conn->query($insr1) === TRUE) {
            <input class="form-control" type="email" name="ca">
            <!-- <div> -->
 <!-- <form action="#" method="post"> -->
-<input type="checkbox" name="job_list[]" value="Create journal" id="cj1" class="Checkbox"><label>Create journal</label><br/>
-<input type="checkbox" name="job_list[]" value="Classification" id="c1" class="Checkbox"><label>Classification</label><br/>
-<input type="checkbox" name="job_list[]" value="Review" id="r1" class="Checkbox"><label>Review</label><br/>
-<input type="checkbox" name="job_list[]" value="Make decision" id="md1" class="Checkbox"><label>Make decision</label><br/>
-<input type="checkbox" name="job_list[]" value="Make reports" id="mr1" class="Checkbox"><label>Make reports</label><br/>
-<input type="checkbox" name="job_list[]" value="Request reviewers" id="rr1" class="Checkbox"><label>Request reviewers</label><br/>
-<input type="checkbox" name="job_list[]" value="Selection of reviewers" id="sr1" class="Checkbox"><label>Selection of reviewers</label><br/>
+<input type="checkbox" name="job_list[]" value="Create journal" id="cj1c" class="Checkbox"><label  id="cj1l">Create journal</label><br/>
+<input type="checkbox" name="job_list[]" value="Classification" id="c1c" class="Checkbox"><label id="c1l">Classification</label><br/>
+<input type="checkbox" name="job_list[]" value="Review" id="r1c" class="Checkbox"><label id="r1l">Review</label><br/>
+<input type="checkbox" name="job_list[]" value="Make decision" id="md1c" class="Checkbox"><label id="md1l">Make decision</label><br/>
+<input type="checkbox" name="job_list[]" value="Make reports" id="mr1c" class="Checkbox"><label id="mr1l">Make reports</label><br/>
+<input type="checkbox" name="job_list[]" value="Request reviewers" id="rr1c" class="Checkbox"><label id="rr1l">Request reviewers</label><br/>
+<input type="checkbox" name="job_list[]" value="Selection of reviewers" id="sr1c" class="Checkbox"><label id="sr1l">Selection of reviewers</label><br/>
 <!-- <input type="submit" name="submit1" value="Submit"/> -->
 <button type="button" id="test" value="click" onclick="loadDoc1()">Change Content</button>
 <!-- <input type="button" id="test" value="click"> -->
@@ -89,8 +89,20 @@ function loadDoc() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      document.getElementById("demo").innerHTML = this.responseText;
-     if( document.getElementById("cj1").innerHTML == this.responseText){
-        document.getElementById("cj1").disabled = true;
+     if(  document.getElementById("cj1l").innerHTML ==  this.responseText ){
+        document.getElementById("cj1c").disabled = true;
+     }else if(  document.getElementById("c1l").innerHTML ==  this.responseText ){
+        document.getElementById("c1c").disabled = true;
+     }else if(  document.getElementById("r1l").innerHTML ==  this.responseText ){
+        document.getElementById("r1c").disabled = true;
+     }else if(  document.getElementById("md1l").innerHTML ==  this.responseText ){
+        document.getElementById("md1c").disabled = true;
+     }else if(  document.getElementById("mr1l").innerHTML ==  this.responseText ){
+        document.getElementById("mr1c").disabled = true;
+     }else if(  document.getElementById("rr1l").innerHTML ==  this.responseText ){
+        document.getElementById("rr1c").disabled = true;
+     }else if(  document.getElementById("sr1l").innerHTML ==  this.responseText ){
+        document.getElementById("sr1c").disabled = true;
      }
     }
   };
