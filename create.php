@@ -297,28 +297,28 @@ function loadDoc1() {
 }
 
 function resetcheckboxes1() {
-    document.getElementById("pmc").checked = true;
-    document.getElementById("pm1c").disabled = true
+    document.getElementById("pmc1").checked = true;
+    document.getElementById("pmc").disabled = true
     document.getElementById("pm2c").disabled = true
 
-    document.getElementById("rc").checked = false;
-    document.getElementById("r1c").disabled = false;
+    document.getElementById("r1c").checked = false;
+    document.getElementById("rc").disabled = false;
     document.getElementById("r2c").disabled = false;
 
-    document.getElementById("mdc").checked = false;
-    document.getElementById("md1c").disabled = false
+    document.getElementById("md1c").checked = false;
+    document.getElementById("mdc").disabled = false
     document.getElementById("md2c").disabled = false
 
-    document.getElementById("mrc").checked = false;
-    document.getElementById("mr1c").disabled = false;    
+    document.getElementById("mr1c").checked = false;
+    document.getElementById("mrc").disabled = false;    
     document.getElementById("mr2c").disabled = false;    
 
-    document.getElementById("rrc").checked = false;
-    document.getElementById("rr1c").disabled = false;  
+    document.getElementById("rr1c").checked = false;
+    document.getElementById("rrc").disabled = false;  
     document.getElementById("rr2c").disabled = false;    
       
-    document.getElementById("src").checked = false;
-    document.getElementById("sr1c").disabled = false; 
+    document.getElementById("sr1c").checked = false;
+    document.getElementById("src").disabled = false; 
     document.getElementById("sr2c").disabled = false;    
 
    
@@ -398,29 +398,29 @@ function loadDoc2() {
 }
 
 function resetcheckboxes2() {
-    document.getElementById("pmc").checked = false;
+    document.getElementById("pm2c").checked = false;
     document.getElementById("pm1c").disabled = false
-    document.getElementById("pm2c").disabled = false
+    document.getElementById("pmc").disabled = false
 
-    document.getElementById("rc").checked = false;
+    document.getElementById("r2c").checked = false;
     document.getElementById("r1c").disabled = false;
-    document.getElementById("r2c").disabled = false;
+    document.getElementById("rc").disabled = false;
 
-    document.getElementById("mdc").checked = true;
+    document.getElementById("md2c").checked = true;
     document.getElementById("md1c").disabled = true
-    document.getElementById("md2c").disabled = true
+    document.getElementById("mdc").disabled = true
 
-    document.getElementById("mrc").checked = false;
+    document.getElementById("mr2c").checked = false;
     document.getElementById("mr1c").disabled = false;    
-    document.getElementById("mr2c").disabled = false;    
+    document.getElementById("mrc").disabled = false;    
 
-    document.getElementById("rrc").checked = false;
+    document.getElementById("rr2c").checked = false;
     document.getElementById("rr1c").disabled = false;  
-    document.getElementById("rr2c").disabled = false;    
+    document.getElementById("rrc").disabled = false;    
       
-    document.getElementById("src").checked = true;
+    document.getElementById("sr2c").checked = true;
     document.getElementById("sr1c").disabled = true; 
-    document.getElementById("sr2c").disabled = true;    
+    document.getElementById("src").disabled = true;    
 
    
 
