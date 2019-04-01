@@ -6,6 +6,7 @@
     <title>test</title>
     <!-- <link rel="stylesheet" href="createS.css"> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  
 </head>
 
 <body>
@@ -35,11 +36,12 @@ if ($conn->query($insr1) === TRUE) {
 }
 ?>
 
-    <span>Now choose you're structure</span>
+    <label>Now choose you're structure</label>
 
     <!-- ////////////////////////////////////////////Committee President///////////////////////////////////////// -->
-    
+    <div id="container">
     <form action="" method="post">
+    <div id="role1">
         <label id="cp">Committee President</label>
         <input type="email" name="cp"  id="cpemail"><br/>
      
@@ -51,12 +53,16 @@ if ($conn->query($insr1) === TRUE) {
         <input type="checkbox" value="Selection of reviewers" id="src" class="Checkbox" disabled = true ><label id="srl">Selection of reviewers</label><br/>
 
         <button type="button" id="test" value="click" onclick="loadDoc()">Done</button>
+        <button type="button" id="reset1" value="click" onclick="document.getElementById('role1').style.display='none'">Delete</button>
+
         
 
-    <div id="demo"></div>
-
+    </div>
+    </form>
  <!-- ////////////////////////////////////////////Editing Manager///////////////////////////////////////////////// -->
-    
+ 
+ <form action="" method="post">
+   <div id="role2"> 
 
         <label id="em">Editing Manager</label>
         <input type="email" name="em" id="ememail"><br/>
@@ -69,14 +75,16 @@ if ($conn->query($insr1) === TRUE) {
         <input type="checkbox" value="Selection of reviewers" id="sr1c" class="Checkbox1" disabled = true ><label id="sr1l">Selection of reviewers</label><br/>
 
         <button type="button" id="test1" value="click" onclick="loadDoc1()">Done</button>
-        <!-- <button type="button" id="reset1" value="click" onclick="resetcheckboxes1()">Reset</button> -->
+        <button type="button" id="reset1" value="click" onclick="document.getElementById('role2').style.display='none'">Delete</button>
 
-<div id="demo1"></div>
 
+</div>
+</form>
 
  <!-- ////////////////////////////////////////////Chapter Chief Editor///////////////////////////////////////////////// -->
     
-
+ <form action="" method="post">
+<div id="role3">
  <label id="cce">Chapter Chief Editor</label>
         <input type="email" name="cce" id="cceemail"><br/>
 
@@ -88,15 +96,21 @@ if ($conn->query($insr1) === TRUE) {
         <input type="checkbox" value="Selection of reviewers" id="sr2c" class="Checkbox2" checked="true"><label id="sr2l">Selection of reviewers</label><br/>
 
         <button type="button" id="test1" value="click" onclick="loadDoc2()">Done</button>
-        <!-- <button type="button" id="reset1" value="click" onclick="resetcheckboxes2()">Reset</button> -->
+        <button type="button" id="reset1" value="click" onclick="document.getElementById('role3').style.display='none'">Delete</button>
+      
+</div>
+</form>
 
-<div id="demo2"></div>
+
+
+
+
+</div>
 <button type="button" id="reset" value="click" onclick="resetcheckboxes()">Reset</button>
 
+<button type="button" id="create" value="click" onclick="createrole()">create new role</button>
+<script src="createrole.js"></script>
 
-
-
-</form>
 
 <script>
 
@@ -135,9 +149,7 @@ function loadDoc() {
      xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
          var r=this.responseText;
-         console.log(r);
          var funn = r.split(',');
-         document.getElementById("demo").innerHTML=funn;
       
        for(var x=0;x<funn.length;x++){
 
@@ -150,55 +162,14 @@ function loadDoc() {
 
        }
        
-    
-
     } 
   };
-  xhttp.open("GET", "fun.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
+  xhttp.open("GET", "recordrole.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
   xhttp.send();
 }
 
-function resetcheckboxes() {
 
-    var n = document.getElementsByClassName('Checkbox');
-    var n1 = document.getElementsByClassName('Checkbox1');
-    var n2 = document.getElementsByClassName('Checkbox2');
-        for(var i=0;i<n.length;i++){
-            if(n[i].value == "Make reports" || n[i].value == "Request reviewers"){
-            n[i].checked = true;
-            n1[i].disabled = true;
-            n2[i].disabled = true;
-             }else{
-            n[i].checked = false;
-            n1[i].disabled = false;
-            n2[i].disabled = false;}
 
-        }
-        for(var i=0;i<n.length;i++){
-            if(n2[i].value == "Make paper decision" || n2[i].value == "Selection of reviewers"){
-            n2[i].checked = true;
-            n[i].disabled = true;
-            n1[i].disabled = true;
-             }else{
-            n2[i].checked = false;
-            n[i].disabled = false;
-            n1[i].disabled = false;}
-
-        }
-          for(var i=0;i<n.length;i++){
-            if(n1[i].value == "Paper managment" ){
-            n1[i].checked = true;
-            n[i].disabled = true;
-            n2[i].disabled = true;
-             }else{
-            n1[i].checked = false;
-            n[i].disabled = false;
-            n2[i].disabled = false;}
-
-        }
-
-    }
-    
     
 ////////////////////////////////////Editing Manager functions //////////////////////////////////////
 function loadDoc1() {
@@ -238,9 +209,7 @@ function loadDoc1() {
      xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
          var r=this.responseText;
-         console.log(r);
          var funn = r.split(',');
-         document.getElementById("demo1").innerHTML=funn;
       
        for(var x=0;x<funn.length;x++){
 
@@ -255,7 +224,7 @@ function loadDoc1() {
        
     } 
   };
-  xhttp.open("GET", "fun.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
+  xhttp.open("GET", "recordrole.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
   xhttp.send();
 }
 
@@ -297,9 +266,7 @@ function loadDoc2() {
      xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
          var r=this.responseText;
-         console.log(r);
          var funn = r.split(',');
-         document.getElementById("demo2").innerHTML=funn;
       
        for(var x=0;x<funn.length;x++){
        
@@ -313,12 +280,55 @@ function loadDoc2() {
       
     } 
   };
-  xhttp.open("GET", "fun.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
+  xhttp.open("GET", "recordrole.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
   xhttp.send();
 }
 
+////////////////////////////////////////////////reset /////////////////////////////////////////////////////////////
+function resetcheckboxes() {
+
+var n = document.getElementsByClassName('Checkbox');
+var n1 = document.getElementsByClassName('Checkbox1');
+var n2 = document.getElementsByClassName('Checkbox2');
+    for(var i=0;i<n.length;i++){
+        if(n[i].value == "Make reports" || n[i].value == "Request reviewers"){
+        n[i].checked = true;
+        n1[i].disabled = true;
+        n2[i].disabled = true;
+         }else{
+        n[i].checked = false;
+        n1[i].disabled = false;
+        n2[i].disabled = false;}
+
+    }
+    for(var i=0;i<n.length;i++){
+        if(n2[i].value == "Make paper decision" || n2[i].value == "Selection of reviewers"){
+        n2[i].checked = true;
+        n[i].disabled = true;
+        n1[i].disabled = true;
+         }else{
+        n2[i].checked = false;
+        n[i].disabled = false;
+        n1[i].disabled = false;}
+
+    }
+      for(var i=0;i<n.length;i++){
+        if(n1[i].value == "Paper managment" ){
+        n1[i].checked = true;
+        n[i].disabled = true;
+        n2[i].disabled = true;
+         }else{
+        n1[i].checked = false;
+        n[i].disabled = false;
+        n2[i].disabled = false;}
+
+    }
+
+}
+
+
 </script>
 
-</form>
+
 </body>
 </html>
