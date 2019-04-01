@@ -51,7 +51,7 @@ if ($conn->query($insr1) === TRUE) {
         <input type="checkbox" value="Selection of reviewers" id="src" class="Checkbox" disabled = true ><label id="srl">Selection of reviewers</label><br/>
 
         <button type="button" id="test" value="click" onclick="loadDoc()">Done</button>
-        <button type="button" id="reset" value="click" onclick="resetcheckboxes()">Reset</button>
+        
 
     <div id="demo"></div>
 
@@ -69,7 +69,7 @@ if ($conn->query($insr1) === TRUE) {
         <input type="checkbox" value="Selection of reviewers" id="sr1c" class="Checkbox1" disabled = true ><label id="sr1l">Selection of reviewers</label><br/>
 
         <button type="button" id="test1" value="click" onclick="loadDoc1()">Done</button>
-        <button type="button" id="reset1" value="click" onclick="resetcheckboxes1()">Reset</button>
+        <!-- <button type="button" id="reset1" value="click" onclick="resetcheckboxes1()">Reset</button> -->
 
 <div id="demo1"></div>
 
@@ -88,32 +88,43 @@ if ($conn->query($insr1) === TRUE) {
         <input type="checkbox" value="Selection of reviewers" id="sr2c" class="Checkbox2" checked="true"><label id="sr2l">Selection of reviewers</label><br/>
 
         <button type="button" id="test1" value="click" onclick="loadDoc2()">Done</button>
-        <button type="button" id="reset1" value="click" onclick="resetcheckboxes2()">Reset</button>
+        <!-- <button type="button" id="reset1" value="click" onclick="resetcheckboxes2()">Reset</button> -->
 
 <div id="demo2"></div>
+<button type="button" id="reset" value="click" onclick="resetcheckboxes()">Reset</button>
 
 
 
 
-
+</form>
 
 <script>
 
 ////////////////////////////////////Committee President functions //////////////////////////////////////
 function loadDoc() {
-            document.getElementById("pm1c").disabled = false;
-            document.getElementById("pm2c").disabled = false;
-            document.getElementById("mr1c").disabled = false;
-            document.getElementById("mr2c").disabled = false;
-            document.getElementById("rr1c").disabled = false;
-            document.getElementById("rr2c").disabled = false;
-            document.getElementById("r1c").disabled = false;
-            document.getElementById("r2c").disabled = false;
-            document.getElementById("md1c").disabled = false;
-            document.getElementById("md2c").disabled = false;
-            document.getElementById("sr1c").disabled = false;
-            document.getElementById("sr2c").disabled = false;
 
+            var n = document.getElementsByClassName('Checkbox');
+            var n1 = document.getElementsByClassName('Checkbox1');
+            var n2 = document.getElementsByClassName('Checkbox2');
+            for(var i=0;i<n1.length;i++){
+                 n1[i].disabled = false;
+                 n2[i].disabled = false;
+
+            }
+
+            
+            for(var i=0;i<n.length;i++){
+                if( n1[i].checked == true){
+                 n[i].disabled = true;
+                 n2[i].disabled = true;
+                }
+            }
+            for(var i=0;i<n.length;i++){
+                if( n2[i].checked == true){
+                 n[i].disabled = true;
+                 n1[i].disabled = true;
+                }
+            }
 
     var email1 = document.getElementById("cpemail").value ;
     var role1 = document.getElementById("cp").innerHTML ;
@@ -129,40 +140,17 @@ function loadDoc() {
          document.getElementById("demo").innerHTML=funn;
       
        for(var x=0;x<funn.length;x++){
+
+        for(var i=0;i<n.length;i++){
+                if( n[i].value == funn[x]){
+                 n1[i].disabled = true;
+                 n2[i].disabled = true;
+                }
+            }
+
+       }
        
-        if(funn[x] == document.getElementById("pml").innerHTML){
-            document.getElementById("pm1c").disabled = true;
-            document.getElementById("pm2c").disabled = true;
-
-
-        }else if( funn[x] ==  document.getElementById("rl").innerHTML){
-            document.getElementById("r1c").disabled = true;
-            document.getElementById("r2c").disabled = true;
- 
-
-        }else if( funn[x] ==  document.getElementById("mdl").innerHTML){
-            document.getElementById("md1c").disabled = true;
-            document.getElementById("md2c").disabled = true;
-     
-
-        }else if( funn[x] ==  document.getElementById("mrl").innerHTML){
-            document.getElementById("mr1c").disabled = true;
-            document.getElementById("mr2c").disabled = true;
-          
-
-
-        }else if( funn[x] ==  document.getElementById("rrl").innerHTML){
-            document.getElementById("rr1c").disabled = true;
-            document.getElementById("rr2c").disabled = true;
-       
-
-        }else if( funn[x] ==  document.getElementById("srl").innerHTML){
-            document.getElementById("sr1c").disabled = true;
-            document.getElementById("sr2c").disabled = true;
-   
-
-        }
-        }
+    
 
     } 
   };
@@ -171,29 +159,67 @@ function loadDoc() {
 }
 
 function resetcheckboxes() {
-    document.getElementById("pmc").checked = false;
-    document.getElementById("pm1c").disabled = false
-    document.getElementById("pm2c").disabled = false
 
-    document.getElementById("rc").checked = false;
-    document.getElementById("r1c").disabled = false;
-    document.getElementById("r2c").disabled = false;
+    var n = document.getElementsByClassName('Checkbox');
+    var n1 = document.getElementsByClassName('Checkbox1');
+    var n2 = document.getElementsByClassName('Checkbox2');
+        for(var i=0;i<n.length;i++){
+            if(n[i].value == "Make reports" || n[i].value == "Request reviewers"){
+            n[i].checked = true;
+            n1[i].disabled = true;
+            n2[i].disabled = true;
+             }else{
+            n[i].checked = false;
+            n1[i].disabled = false;
+            n2[i].disabled = false;}
 
-    document.getElementById("mdc").checked = false;
-    document.getElementById("md1c").disabled = false
-    document.getElementById("md2c").disabled = false
+        }
+        for(var i=0;i<n.length;i++){
+            if(n2[i].value == "Make paper decision" || n2[i].value == "Selection of reviewers"){
+            n2[i].checked = true;
+            n[i].disabled = true;
+            n1[i].disabled = true;
+             }else{
+            n2[i].checked = false;
+            n[i].disabled = false;
+            n1[i].disabled = false;}
 
-    document.getElementById("mrc").checked = true;
-    document.getElementById("mr1c").disabled = true;    
-    document.getElementById("mr2c").disabled = true;    
+        }
+          for(var i=0;i<n.length;i++){
+            if(n1[i].value == "Paper managment" ){
+            n1[i].checked = true;
+            n[i].disabled = true;
+            n2[i].disabled = true;
+             }else{
+            n1[i].checked = false;
+            n[i].disabled = false;
+            n2[i].disabled = false;}
 
-    document.getElementById("rrc").checked = true;
-    document.getElementById("rr1c").disabled = true;  
-    document.getElementById("rr2c").disabled = true;    
+        }
+
+    // document.getElementById("pmc").checked = false;
+    // document.getElementById("pm1c").disabled = false
+    // document.getElementById("pm2c").disabled = false
+
+    // document.getElementById("rc").checked = false;
+    // document.getElementById("r1c").disabled = false;
+    // document.getElementById("r2c").disabled = false;
+
+    // document.getElementById("mdc").checked = false;
+    // document.getElementById("md1c").disabled = false
+    // document.getElementById("md2c").disabled = false
+
+    // document.getElementById("mrc").checked = true;
+    // document.getElementById("mr1c").disabled = true;    
+    // document.getElementById("mr2c").disabled = true;    
+
+    // document.getElementById("rrc").checked = true;
+    // document.getElementById("rr1c").disabled = true;  
+    // document.getElementById("rr2c").disabled = true;    
       
-    document.getElementById("src").checked = false;
-    document.getElementById("sr1c").disabled = false; 
-    document.getElementById("sr2c").disabled = false;    
+    // document.getElementById("src").checked = false;
+    // document.getElementById("sr1c").disabled = false; 
+    // document.getElementById("sr2c").disabled = false;    
 
    
 
@@ -202,124 +228,104 @@ function resetcheckboxes() {
     
 ////////////////////////////////////Editing Manager functions //////////////////////////////////////
 function loadDoc1() {
-            document.getElementById("pmc").disabled = false;
-            document.getElementById("pm2c").disabled = false;
-            document.getElementById("mrc").disabled = false;
-            document.getElementById("mr2c").disabled = false;
-            document.getElementById("rrc").disabled = false;
-            document.getElementById("rr2c").disabled = false;
-            document.getElementById("rc").disabled = false;
-            document.getElementById("r2c").disabled = false;
-            document.getElementById("mdc").disabled = false;
-            document.getElementById("md2c").disabled = false;
-            document.getElementById("src").disabled = false;
-            document.getElementById("sr2c").disabled = false;
+           
+            var n = document.getElementsByClassName('Checkbox');
+            var n1 = document.getElementsByClassName('Checkbox1');
+            var n2 = document.getElementsByClassName('Checkbox2');
+            for(var i=0;i<n.length;i++){
+                 n[i].disabled = false;
+                 n2[i].disabled = false;
 
+            }
 
-    //         if(document.getElementById("pmc").checked = false){ 
-    //         document.getElementById("pm1c").disabled = false;
-    //         document.getElementById("pm2c").disabled = false;}
-    //   else if(document.getElementById("mrc").checked = false)     
-    //         {document.getElementById("mr1c").disabled = false;
-    //         document.getElementById("mr2c").disabled = false;}
-    //   else if(document.getElementById("rrc").checked = false)     
-
-    //         {document.getElementById("rr1c").disabled = false;
-    //         document.getElementById("rr2c").disabled = false;}
-    //   else if(document.getElementById("rc").checked = false)     
             
-    //         {document.getElementById("r1c").disabled = false;
-    //         document.getElementById("r2c").disabled = false;}
-    //   else if(document.getElementById("mdc").checked = false)     
+            for(var i=0;i<n.length;i++){
+                if( n[i].checked == true){
+                 n1[i].disabled = true;
+                 n2[i].disabled = true;
+                }
+            }
+            for(var i=0;i<n.length;i++){
+                if( n2[i].checked == true){
+                 n[i].disabled = true;
+                 n1[i].disabled = true;
+                }
+            }
 
-    //         {document.getElementById("md1c").disabled = false;
-    //         document.getElementById("md2c").disabled = false;}
-    //   else if(document.getElementById("src").checked = false)     
-
-    //         {document.getElementById("sr1c").disabled = false;
-    //         document.getElementById("sr2c").disabled = false;}
 
 
 
-    var email2 = document.getElementById("ememail").value ;
-    var role2 = document.getElementById("em").innerHTML ;
-    var func2 = ($('.Checkbox1:checked').map(function() {
+    var email1 = document.getElementById("ememail").value ;
+    var role1 = document.getElementById("em").innerHTML ;
+    var func1 = ($('.Checkbox1:checked').map(function() {
     return this.value; }).get().join(','));
      
-    var xhttp2 = new XMLHttpRequest();
-     xhttp2.onreadystatechange = function() {
+    var xhttp = new XMLHttpRequest();
+     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-         var r2=this.responseText;
-         console.log(r2);
-         var funn2 = r2.split(',');
-         document.getElementById("demo1").innerHTML=funn2;
+         var r=this.responseText;
+         console.log(r);
+         var funn = r.split(',');
+         document.getElementById("demo1").innerHTML=funn;
       
-       for(var x=0;x<funn2.length;x++){
+       for(var x=0;x<funn.length;x++){
+
+        for(var i=0;i<n.length;i++){
+                if( n1[i].value == funn[x]){
+                 n[i].disabled = true;
+                 n2[i].disabled = true;
+                }
+            }
+
+       }
        
-        if(funn2[x] == document.getElementById("pm1l").innerHTML){
-            document.getElementById("pmc").disabled = true;
-            document.getElementById("pm2c").disabled = true;
-
-
-        }else if( funn2[x] ==  document.getElementById("r1l").innerHTML){
-            document.getElementById("rc").disabled = true;
-            document.getElementById("r2c").disabled = true;
- 
-
-        }else if( funn2[x] ==  document.getElementById("md1l").innerHTML){
-            document.getElementById("mdc").disabled = true;
-            document.getElementById("md2c").disabled = true;
-     
-
-        }else if( funn2[x] ==  document.getElementById("mr1l").innerHTML){
-            document.getElementById("mrc").disabled = true;
-            document.getElementById("mr2c").disabled = true;
-          
-
-
-        }else if( funn2[x] ==  document.getElementById("rr1l").innerHTML){
-            document.getElementById("rrc").disabled = true;
-            document.getElementById("rr2c").disabled = true;
-       
-
-        }else if( funn2[x] ==  document.getElementById("sr1l").innerHTML){
-            document.getElementById("src").disabled = true;
-            document.getElementById("sr2c").disabled = true;
-   
-
-        }
-        }
-
     } 
   };
-  xhttp2.open("GET", "fun1.php?func2="+func2+"&email2="+email2+"&role2="+role2, true);
-  xhttp2.send();
+  xhttp.open("GET", "fun.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
+  xhttp.send();
 }
 
 function resetcheckboxes1() {
-    document.getElementById("pmc1").checked = true;
-    document.getElementById("pmc").disabled = true
-    document.getElementById("pm2c").disabled = true
 
-    document.getElementById("r1c").checked = false;
-    document.getElementById("rc").disabled = false;
-    document.getElementById("r2c").disabled = false;
+    // var n = document.getElementsByClassName('Checkbox');
+    // var n1 = document.getElementsByClassName('Checkbox1');
+    // var n2 = document.getElementsByClassName('Checkbox2');
+    //     for(var i=0;i<n.length;i++){
+    //         if(n1[i].value == "Paper managment" ){
+    //         n1[i].checked = true;
+    //         n[i].disabled = true;
+    //         n2[i].disabled = true;
+    //          }else{
+    //         n1[i].checked = false;
+    //         n[i].disabled = false;
+    //         n2[i].disabled = false;}
 
-    document.getElementById("md1c").checked = false;
-    document.getElementById("mdc").disabled = false
-    document.getElementById("md2c").disabled = false
+    //     }
 
-    document.getElementById("mr1c").checked = false;
-    document.getElementById("mrc").disabled = false;    
-    document.getElementById("mr2c").disabled = false;    
 
-    document.getElementById("rr1c").checked = false;
-    document.getElementById("rrc").disabled = false;  
-    document.getElementById("rr2c").disabled = false;    
+    // document.getElementById("pm1c").checked = true;
+    // document.getElementById("pmc").disabled = true
+    // document.getElementById("pm2c").disabled = true
+
+    // document.getElementById("r1c").checked = false;
+    // document.getElementById("rc").disabled = false;
+    // document.getElementById("r2c").disabled = false;
+
+    // document.getElementById("md1c").checked = false;
+    // document.getElementById("mdc").disabled = false
+    // document.getElementById("md2c").disabled = false
+
+    // document.getElementById("mr1c").checked = false;
+    // document.getElementById("mrc").disabled = false;    
+    // document.getElementById("mr2c").disabled = false;    
+
+    // document.getElementById("rr1c").checked = false;
+    // document.getElementById("rrc").disabled = false;  
+    // document.getElementById("rr2c").disabled = false;    
       
-    document.getElementById("sr1c").checked = false;
-    document.getElementById("src").disabled = false; 
-    document.getElementById("sr2c").disabled = false;    
+    // document.getElementById("sr1c").checked = false;
+    // document.getElementById("src").disabled = false; 
+    // document.getElementById("sr2c").disabled = false;    
 
    
 
@@ -328,114 +334,119 @@ function resetcheckboxes1() {
     
 ////////////////////////////////////Chapter Chief Editor functions //////////////////////////////////////
 function loadDoc2() {
-            document.getElementById("pm1c").disabled = false;
-            document.getElementById("pmc").disabled = false;
-            document.getElementById("mr1c").disabled = false;
-            document.getElementById("mrc").disabled = false;
-            document.getElementById("rr1c").disabled = false;
-            document.getElementById("rrc").disabled = false;
-            document.getElementById("r1c").disabled = false;
-            document.getElementById("rc").disabled = false;
-            document.getElementById("md1c").disabled = false;
-            document.getElementById("mdc").disabled = false;
-            document.getElementById("sr1c").disabled = false;
-            document.getElementById("src").disabled = false;
+        
+            var n = document.getElementsByClassName('Checkbox');
+            var n1 = document.getElementsByClassName('Checkbox1');
+            var n2 = document.getElementsByClassName('Checkbox2');
+
+            for(var i=0;i<n.length;i++){
+                 n[i].disabled = false;
+                 n1[i].disabled = false;
+
+            }
+
+            for(var i=0;i<n.length;i++){
+                if( n[i].checked == true){
+                 n1[i].disabled = true;
+                 n2[i].disabled = true;
+                }
+            }
+            for(var i=0;i<n.length;i++){
+                if( n1[i].checked == true){
+                 n[i].disabled = true;
+                 n2[i].disabled = true;
+                }
+            }
 
 
-    var email3 = document.getElementById("cceemail").value ;
-    var role3 = document.getElementById("cce").innerHTML ;
-    var func3 = ($('.Checkbox2:checked').map(function() {
+
+
+    var email1 = document.getElementById("cceemail").value ;
+    var role1 = document.getElementById("cce").innerHTML ;
+    var func1 = ($('.Checkbox2:checked').map(function() {
     return this.value; }).get().join(','));
      
-    var xhttp3 = new XMLHttpRequest();
-     xhttp3.onreadystatechange = function() {
+    var xhttp = new XMLHttpRequest();
+     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-         var r3=this.responseText;
-         console.log(3);
-         var funn3 = r3.split(',');
-         document.getElementById("demo2").innerHTML=funn3;
+         var r=this.responseText;
+         console.log(r);
+         var funn = r.split(',');
+         document.getElementById("demo2").innerHTML=funn;
       
-       for(var x=0;x<funn3.length;x++){
+       for(var x=0;x<funn.length;x++){
        
-        if(funn3[x] == document.getElementById("pm2l").innerHTML){
-            document.getElementById("pm1c").disabled = true;
-            document.getElementById("pmc").disabled = true;
-
-
-        }else if( funn3[x] ==  document.getElementById("r2").innerHTML){
-            document.getElementById("r1c").disabled = true;
-            document.getElementById("rc").disabled = true;
- 
-
-        }else if( funn3[x] ==  document.getElementById("md2l").innerHTML){
-            document.getElementById("md1c").disabled = true;
-            document.getElementById("mdc").disabled = true;
-     
-
-        }else if( funn3[x] ==  document.getElementById("mr2l").innerHTML){
-            document.getElementById("mr1c").disabled = true;
-            document.getElementById("mrc").disabled = true;
-          
-
-
-        }else if( funn3[x] ==  document.getElementById("rr2l").innerHTML){
-            document.getElementById("rr1c").disabled = true;
-            document.getElementById("rrc").disabled = true;
-       
-
-        }else if( funn3[x] ==  document.getElementById("sr2l").innerHTML){
-            document.getElementById("sr1c").disabled = true;
-            document.getElementById("src").disabled = true;
-   
-
-        }
-        }
-
+        for(var i=0;i<n.length;i++){
+                if( n2[i].value == funn[x]){
+                 n[i].disabled = true;
+                 n1[i].disabled = true;
+                }
+            }
+       }
+      
     } 
   };
-  xhttp.open("GET", "fun2.php?func3="+func3+"&email3="+email3+"&role3="+role3, true);
+  xhttp.open("GET", "fun.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
   xhttp.send();
 }
 
 function resetcheckboxes2() {
-    document.getElementById("pm2c").checked = false;
-    document.getElementById("pm1c").disabled = false
-    document.getElementById("pmc").disabled = false
 
-    document.getElementById("r2c").checked = false;
-    document.getElementById("r1c").disabled = false;
-    document.getElementById("rc").disabled = false;
+    // var n = document.getElementsByClassName('Checkbox');
+    // var n1 = document.getElementsByClassName('Checkbox1');
+    // var n2 = document.getElementsByClassName('Checkbox2');
+    //     for(var i=0;i<n.length;i++){
+    //         if(n2[i].value == "Make paper decision" || n2[i].value == "Selection of reviewers"){
+    //         n2[i].checked = true;
+    //         n[i].disabled = true;
+    //         n1[i].disabled = true;
+    //          }else{
+    //         n2[i].checked = false;
+    //         n[i].disabled = false;
+    //         n1[i].disabled = false;}
 
-    document.getElementById("md2c").checked = true;
-    document.getElementById("md1c").disabled = true
-    document.getElementById("mdc").disabled = true
+    //     }
+      //     for(var i=0;i<n.length;i++){
+    //         if(n1[i].value == "Paper managment" ){
+    //         n1[i].checked = true;
+    //         n[i].disabled = true;
+    //         n2[i].disabled = true;
+    //          }else{
+    //         n1[i].checked = false;
+    //         n[i].disabled = false;
+    //         n2[i].disabled = false;}
 
-    document.getElementById("mr2c").checked = false;
-    document.getElementById("mr1c").disabled = false;    
-    document.getElementById("mrc").disabled = false;    
+    //     }
 
-    document.getElementById("rr2c").checked = false;
-    document.getElementById("rr1c").disabled = false;  
-    document.getElementById("rrc").disabled = false;    
+
+    // document.getElementById("pm2c").checked = false;
+    // document.getElementById("pm1c").disabled = false
+    // document.getElementById("pmc").disabled = false
+
+    // document.getElementById("r2c").checked = false;
+    // document.getElementById("r1c").disabled = false;
+    // document.getElementById("rc").disabled = false;
+
+    // document.getElementById("md2c").checked = true;
+    // document.getElementById("md1c").disabled = true
+    // document.getElementById("mdc").disabled = true
+
+    // document.getElementById("mr2c").checked = false;
+    // document.getElementById("mr1c").disabled = false;    
+    // document.getElementById("mrc").disabled = false;    
+
+    // document.getElementById("rr2c").checked = false;
+    // document.getElementById("rr1c").disabled = false;  
+    // document.getElementById("rrc").disabled = false;    
       
-    document.getElementById("sr2c").checked = true;
-    document.getElementById("sr1c").disabled = true; 
-    document.getElementById("src").disabled = true;    
-
-   
+    // document.getElementById("sr2c").checked = true;
+    // document.getElementById("sr1c").disabled = true; 
+    // document.getElementById("src").disabled = true;    
 
     }
 
 
 </script>
-
-
-
-
-
-
-
-
 
 </form>
 </body>
