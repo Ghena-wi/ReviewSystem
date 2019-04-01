@@ -197,32 +197,6 @@ function resetcheckboxes() {
 
         }
 
-    // document.getElementById("pmc").checked = false;
-    // document.getElementById("pm1c").disabled = false
-    // document.getElementById("pm2c").disabled = false
-
-    // document.getElementById("rc").checked = false;
-    // document.getElementById("r1c").disabled = false;
-    // document.getElementById("r2c").disabled = false;
-
-    // document.getElementById("mdc").checked = false;
-    // document.getElementById("md1c").disabled = false
-    // document.getElementById("md2c").disabled = false
-
-    // document.getElementById("mrc").checked = true;
-    // document.getElementById("mr1c").disabled = true;    
-    // document.getElementById("mr2c").disabled = true;    
-
-    // document.getElementById("rrc").checked = true;
-    // document.getElementById("rr1c").disabled = true;  
-    // document.getElementById("rr2c").disabled = true;    
-      
-    // document.getElementById("src").checked = false;
-    // document.getElementById("sr1c").disabled = false; 
-    // document.getElementById("sr2c").disabled = false;    
-
-   
-
     }
     
     
@@ -285,53 +259,6 @@ function loadDoc1() {
   xhttp.send();
 }
 
-function resetcheckboxes1() {
-
-    // var n = document.getElementsByClassName('Checkbox');
-    // var n1 = document.getElementsByClassName('Checkbox1');
-    // var n2 = document.getElementsByClassName('Checkbox2');
-    //     for(var i=0;i<n.length;i++){
-    //         if(n1[i].value == "Paper managment" ){
-    //         n1[i].checked = true;
-    //         n[i].disabled = true;
-    //         n2[i].disabled = true;
-    //          }else{
-    //         n1[i].checked = false;
-    //         n[i].disabled = false;
-    //         n2[i].disabled = false;}
-
-    //     }
-
-
-    // document.getElementById("pm1c").checked = true;
-    // document.getElementById("pmc").disabled = true
-    // document.getElementById("pm2c").disabled = true
-
-    // document.getElementById("r1c").checked = false;
-    // document.getElementById("rc").disabled = false;
-    // document.getElementById("r2c").disabled = false;
-
-    // document.getElementById("md1c").checked = false;
-    // document.getElementById("mdc").disabled = false
-    // document.getElementById("md2c").disabled = false
-
-    // document.getElementById("mr1c").checked = false;
-    // document.getElementById("mrc").disabled = false;    
-    // document.getElementById("mr2c").disabled = false;    
-
-    // document.getElementById("rr1c").checked = false;
-    // document.getElementById("rrc").disabled = false;  
-    // document.getElementById("rr2c").disabled = false;    
-      
-    // document.getElementById("sr1c").checked = false;
-    // document.getElementById("src").disabled = false; 
-    // document.getElementById("sr2c").disabled = false;    
-
-   
-
-    }
-
-    
 ////////////////////////////////////Chapter Chief Editor functions //////////////////////////////////////
 function loadDoc2() {
         
@@ -389,62 +316,6 @@ function loadDoc2() {
   xhttp.open("GET", "fun.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
   xhttp.send();
 }
-
-function resetcheckboxes2() {
-
-    // var n = document.getElementsByClassName('Checkbox');
-    // var n1 = document.getElementsByClassName('Checkbox1');
-    // var n2 = document.getElementsByClassName('Checkbox2');
-    //     for(var i=0;i<n.length;i++){
-    //         if(n2[i].value == "Make paper decision" || n2[i].value == "Selection of reviewers"){
-    //         n2[i].checked = true;
-    //         n[i].disabled = true;
-    //         n1[i].disabled = true;
-    //          }else{
-    //         n2[i].checked = false;
-    //         n[i].disabled = false;
-    //         n1[i].disabled = false;}
-
-    //     }
-      //     for(var i=0;i<n.length;i++){
-    //         if(n1[i].value == "Paper managment" ){
-    //         n1[i].checked = true;
-    //         n[i].disabled = true;
-    //         n2[i].disabled = true;
-    //          }else{
-    //         n1[i].checked = false;
-    //         n[i].disabled = false;
-    //         n2[i].disabled = false;}
-
-    //     }
-
-
-    // document.getElementById("pm2c").checked = false;
-    // document.getElementById("pm1c").disabled = false
-    // document.getElementById("pmc").disabled = false
-
-    // document.getElementById("r2c").checked = false;
-    // document.getElementById("r1c").disabled = false;
-    // document.getElementById("rc").disabled = false;
-
-    // document.getElementById("md2c").checked = true;
-    // document.getElementById("md1c").disabled = true
-    // document.getElementById("mdc").disabled = true
-
-    // document.getElementById("mr2c").checked = false;
-    // document.getElementById("mr1c").disabled = false;    
-    // document.getElementById("mrc").disabled = false;    
-
-    // document.getElementById("rr2c").checked = false;
-    // document.getElementById("rr1c").disabled = false;  
-    // document.getElementById("rrc").disabled = false;    
-      
-    // document.getElementById("sr2c").checked = true;
-    // document.getElementById("sr1c").disabled = true; 
-    // document.getElementById("src").disabled = true;    
-
-    }
-
 
 </script>
 
