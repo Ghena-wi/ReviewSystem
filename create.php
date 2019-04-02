@@ -45,12 +45,12 @@ if ($conn->query($insr1) === TRUE) {
         <label id="cp">Committee President</label>
         <input type="email" name="cp"  id="cpemail"><br/>
      
-        <input type="checkbox" value="Paper managment" id="pmc" class="Checkbox" disabled = true ><label id="pml" >Paper managment</label><br/>
-        <input type="checkbox" value="Review" id="rc" class="Checkbox"><label id="rl">Review</label><br/>
-        <input type="checkbox" value="Make paper decision" id="mdc" class="Checkbox" disabled = true ><label id="mdl" >Make paper decision</label><br/>
-        <input type="checkbox" value="Make reports" id="mrc" class="Checkbox" checked="true"><label id="mrl" >Make reports</label><br/>
-        <input type="checkbox" value="Request reviewers" id="rrc" class="Checkbox" checked="true"><label id="rrl" >Request reviewers</label><br/>
-        <input type="checkbox" value="Selection of reviewers" id="src" class="Checkbox" disabled = true ><label id="srl">Selection of reviewers</label><br/>
+        <input type="checkbox" value="Paper managment" id="pmc" class="Checkbox1" disabled = true ><label id="pml" >Paper managment</label><br/>
+        <input type="checkbox" value="Review" id="rc" class="Checkbox1"><label id="rl">Review</label><br/>
+        <input type="checkbox" value="Make paper decision" id="mdc" class="Checkbox1" disabled = true ><label id="mdl" >Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mrc" class="Checkbox1" checked="true"><label id="mrl" >Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rrc" class="Checkbox1" checked="true"><label id="rrl" >Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="src" class="Checkbox1" disabled = true ><label id="srl">Selection of reviewers</label><br/>
 
         <button type="button" id="test" value="click" onclick="loadDoc()">Done</button>
         <button type="button" id="reset1" value="click" onclick="document.getElementById('role1').style.display='none'">Delete</button>
@@ -67,12 +67,12 @@ if ($conn->query($insr1) === TRUE) {
         <label id="em">Editing Manager</label>
         <input type="email" name="em" id="ememail"><br/>
 
-        <input type="checkbox" value="Paper managment" id="pm1c" class="Checkbox1" checked="true"><label id="pm1l">Paper managment</label><br/>
-        <input type="checkbox" value="Review" id="r1c" class="Checkbox1"><label id="r1l">Review</label><br/>
-        <input type="checkbox" value="Make paper decision" id="md1c" class="Checkbox1" disabled = true ><label id="md1l">Make paper decision</label><br/>
-        <input type="checkbox" value="Make reports" id="mr1c" class="Checkbox1" disabled = true><label id="mr1l">Make reports</label><br/>
-        <input type="checkbox" value="Request reviewers" id="rr1c" class="Checkbox1" disabled = true><label id="rr1l">Request reviewers</label><br/>
-        <input type="checkbox" value="Selection of reviewers" id="sr1c" class="Checkbox1" disabled = true ><label id="sr1l">Selection of reviewers</label><br/>
+        <input type="checkbox" value="Paper managment" id="pm1c" class="Checkbox2" checked="true"><label id="pm1l">Paper managment</label><br/>
+        <input type="checkbox" value="Review" id="r1c" class="Checkbox2"><label id="r1l">Review</label><br/>
+        <input type="checkbox" value="Make paper decision" id="md1c" class="Checkbox2" disabled = true ><label id="md1l">Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mr1c" class="Checkbox2" disabled = true><label id="mr1l">Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rr1c" class="Checkbox2" disabled = true><label id="rr1l">Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="sr1c" class="Checkbox2" disabled = true ><label id="sr1l">Selection of reviewers</label><br/>
 
         <button type="button" id="test1" value="click" onclick="loadDoc1()">Done</button>
         <button type="button" id="reset1" value="click" onclick="document.getElementById('role2').style.display='none'">Delete</button>
@@ -88,12 +88,12 @@ if ($conn->query($insr1) === TRUE) {
  <label id="cce">Chapter Chief Editor</label>
         <input type="email" name="cce" id="cceemail"><br/>
 
-        <input type="checkbox" value="Paper managment" id="pm2c" class="Checkbox2" disabled = true><label id="pm2l">Paper managment</label><br/>
-        <input type="checkbox" value="Review" id="r2c" class="Checkbox2"><label id="r2l">Review</label><br/>
-        <input type="checkbox" value="Make paper decision" id="md2c" class="Checkbox2" checked="true"><label id="md2l">Make paper decision</label><br/>
-        <input type="checkbox" value="Make reports" id="mr2c" class="Checkbox2" disabled = true><label id="mr2l">Make reports</label><br/>
-        <input type="checkbox" value="Request reviewers" id="rr2c" class="Checkbox2" disabled = true><label id="rr2l">Request reviewers</label><br/>
-        <input type="checkbox" value="Selection of reviewers" id="sr2c" class="Checkbox2" checked="true"><label id="sr2l">Selection of reviewers</label><br/>
+        <input type="checkbox" value="Paper managment" id="pm2c" class="Checkbox3" disabled = true><label id="pm2l">Paper managment</label><br/>
+        <input type="checkbox" value="Review" id="r2c" class="Checkbox3"><label id="r2l">Review</label><br/>
+        <input type="checkbox" value="Make paper decision" id="md2c" class="Checkbox3" checked="true"><label id="md2l">Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mr2c" class="Checkbox3" disabled = true><label id="mr2l">Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rr2c" class="Checkbox3" disabled = true><label id="rr2l">Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="sr2c" class="Checkbox3" checked="true"><label id="sr2l">Selection of reviewers</label><br/>
 
         <button type="button" id="test1" value="click" onclick="loadDoc2()">Done</button>
         <button type="button" id="reset1" value="click" onclick="document.getElementById('role3').style.display='none'">Delete</button>
@@ -113,36 +113,51 @@ if ($conn->query($insr1) === TRUE) {
 
 
 <script>
-
-////////////////////////////////////Committee President functions //////////////////////////////////////
-function loadDoc() {
-
-            var n = document.getElementsByClassName('Checkbox');
             var n1 = document.getElementsByClassName('Checkbox1');
             var n2 = document.getElementsByClassName('Checkbox2');
+            var n3 = document.getElementsByClassName('Checkbox3');
+            var n4 = document.getElementsByClassName('Checkbox4');
+            var n5 = document.getElementsByClassName('Checkbox5');
+            var n6 = document.getElementsByClassName('Checkbox6');
+            var n7 = document.getElementsByClassName('Checkbox7');
+            var n8 = document.getElementsByClassName('Checkbox8');
+            var n9 = document.getElementsByClassName('Checkbox9');
+            
+
+
+////////////////////////////////////Committee President functions //////////////////////////////////////
+
+function loadDoc() {
+
             for(var i=0;i<n1.length;i++){
-                 n1[i].disabled = false;
                  n2[i].disabled = false;
+                 n3[i].disabled = false;
+                 if(n4[i]){n4[i].disabled = false;}
+
 
             }
 
             
-            for(var i=0;i<n.length;i++){
-                if( n1[i].checked == true){
-                 n[i].disabled = true;
-                 n2[i].disabled = true;
+            for(var i=0;i<n1.length;i++){
+                if( n2[i].checked == true){
+                 n1[i].disabled = true;
+                 n3[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
                 }
             }
-            for(var i=0;i<n.length;i++){
-                if( n2[i].checked == true){
-                 n[i].disabled = true;
+            for(var i=0;i<n1.length;i++){
+                if( n3[i].checked == true){
                  n1[i].disabled = true;
+                 n2[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
                 }
             }
 
     var email1 = document.getElementById("cpemail").value ;
     var role1 = document.getElementById("cp").innerHTML ;
-    var func1 = ($('.Checkbox:checked').map(function() {
+    var func1 = ($('.Checkbox1:checked').map(function() {
     return this.value; }).get().join(','));
      
     var xhttp = new XMLHttpRequest();
@@ -153,10 +168,21 @@ function loadDoc() {
       
        for(var x=0;x<funn.length;x++){
 
-        for(var i=0;i<n.length;i++){
-                if( n[i].value == funn[x]){
-                 n1[i].disabled = true;
-                 n2[i].disabled = true;
+        for(var i=0;i<n1.length;i++){
+                if( n1[i].value == funn[x]){
+                    n2[i].disabled = true;
+                    n3[i].disabled = true;
+                    if(n4[i]){n4[i].disabled = true;}
+                    
+
+
+                //     for(var j=2;j<=4;j++){
+                //         // var z="n"+j;
+                //         console.log(narray[j]);
+                //         narray[j][i].disabled = true;
+                // //  n2[i].disabled = true;
+                // //  n4[i].disabled = true;
+                //     }
                 }
             }
 
@@ -174,35 +200,43 @@ function loadDoc() {
 ////////////////////////////////////Editing Manager functions //////////////////////////////////////
 function loadDoc1() {
            
-            var n = document.getElementsByClassName('Checkbox');
-            var n1 = document.getElementsByClassName('Checkbox1');
-            var n2 = document.getElementsByClassName('Checkbox2');
-            for(var i=0;i<n.length;i++){
-                 n[i].disabled = false;
-                 n2[i].disabled = false;
+            // var n1 = document.getElementsByClassName('Checkbox1');
+            // var n2 = document.getElementsByClassName('Checkbox2');
+            // var n3 = document.getElementsByClassName('Checkbox3');
+            // var n4 = document.getElementsByClassName('Checkbox4');
+
+            for(var i=0;i<n1.length;i++){
+                 n1[i].disabled = false;
+                 n3[i].disabled = false;
+                 if(n4[i]){n4[i].disabled = false;}
+
 
             }
 
             
-            for(var i=0;i<n.length;i++){
-                if( n[i].checked == true){
+            for(var i=0;i<n1.length;i++){
+                if( n1[i].checked == true){
+                 n2[i].disabled = true;
+                 n3[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
+                }
+            }
+            for(var i=0;i<n1.length;i++){
+                if( n3[i].checked == true){
                  n1[i].disabled = true;
                  n2[i].disabled = true;
-                }
-            }
-            for(var i=0;i<n.length;i++){
-                if( n2[i].checked == true){
-                 n[i].disabled = true;
-                 n1[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
                 }
             }
 
-
+            
 
 
     var email1 = document.getElementById("ememail").value ;
     var role1 = document.getElementById("em").innerHTML ;
-    var func1 = ($('.Checkbox1:checked').map(function() {
+    var func1 = ($('.Checkbox2:checked').map(function() {
     return this.value; }).get().join(','));
      
     var xhttp = new XMLHttpRequest();
@@ -213,10 +247,12 @@ function loadDoc1() {
       
        for(var x=0;x<funn.length;x++){
 
-        for(var i=0;i<n.length;i++){
-                if( n1[i].value == funn[x]){
-                 n[i].disabled = true;
-                 n2[i].disabled = true;
+        for(var i=0;i<n2.length;i++){
+                if( n2[i].value == funn[x]){
+                 n1[i].disabled = true;
+                 n3[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
                 }
             }
 
@@ -231,26 +267,34 @@ function loadDoc1() {
 ////////////////////////////////////Chapter Chief Editor functions //////////////////////////////////////
 function loadDoc2() {
         
-            var n = document.getElementsByClassName('Checkbox');
-            var n1 = document.getElementsByClassName('Checkbox1');
-            var n2 = document.getElementsByClassName('Checkbox2');
+            // var n1 = document.getElementsByClassName('Checkbox1');
+            // var n2 = document.getElementsByClassName('Checkbox2');
+            // var n3 = document.getElementsByClassName('Checkbox3');
+            // var n4 = document.getElementsByClassName('Checkbox4');
 
-            for(var i=0;i<n.length;i++){
-                 n[i].disabled = false;
+
+            for(var i=0;i<n1.length;i++){
                  n1[i].disabled = false;
+                 n2[i].disabled = false;
+                 if(n4[i]){n4[i].disabled = false;}
+
 
             }
 
-            for(var i=0;i<n.length;i++){
-                if( n[i].checked == true){
-                 n1[i].disabled = true;
+            for(var i=0;i<n1.length;i++){
+                if( n1[i].checked == true){
                  n2[i].disabled = true;
+                 n3[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
                 }
             }
-            for(var i=0;i<n.length;i++){
-                if( n1[i].checked == true){
-                 n[i].disabled = true;
-                 n2[i].disabled = true;
+            for(var i=0;i<n1.length;i++){
+                if( n2[i].checked == true){
+                 n1[i].disabled = true;
+                 n3[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
                 }
             }
 
@@ -259,7 +303,7 @@ function loadDoc2() {
 
     var email1 = document.getElementById("cceemail").value ;
     var role1 = document.getElementById("cce").innerHTML ;
-    var func1 = ($('.Checkbox2:checked').map(function() {
+    var func1 = ($('.Checkbox3:checked').map(function() {
     return this.value; }).get().join(','));
      
     var xhttp = new XMLHttpRequest();
@@ -270,10 +314,12 @@ function loadDoc2() {
       
        for(var x=0;x<funn.length;x++){
        
-        for(var i=0;i<n.length;i++){
-                if( n2[i].value == funn[x]){
-                 n[i].disabled = true;
+        for(var i=0;i<n1.length;i++){
+                if( n3[i].value == funn[x]){
                  n1[i].disabled = true;
+                 n2[i].disabled = true;
+                 if(n4[i]){n4[i].disabled = true;}
+
                 }
             }
        }
@@ -285,42 +331,57 @@ function loadDoc2() {
 }
 
 ////////////////////////////////////////////////reset /////////////////////////////////////////////////////////////
+
 function resetcheckboxes() {
 
-var n = document.getElementsByClassName('Checkbox');
-var n1 = document.getElementsByClassName('Checkbox1');
-var n2 = document.getElementsByClassName('Checkbox2');
-    for(var i=0;i<n.length;i++){
-        if(n[i].value == "Make reports" || n[i].value == "Request reviewers"){
-        n[i].checked = true;
-        n1[i].disabled = true;
-        n2[i].disabled = true;
-         }else{
-        n[i].checked = false;
-        n1[i].disabled = false;
-        n2[i].disabled = false;}
+// var n1 = document.getElementsByClassName('Checkbox1');
+// var n2 = document.getElementsByClassName('Checkbox2');
+// var n3 = document.getElementsByClassName('Checkbox3');
+// var n4 = document.getElementsByClassName('Checkbox4');
 
-    }
-    for(var i=0;i<n.length;i++){
-        if(n2[i].value == "Make paper decision" || n2[i].value == "Selection of reviewers"){
-        n2[i].checked = true;
-        n[i].disabled = true;
-        n1[i].disabled = true;
-         }else{
-        n2[i].checked = false;
-        n[i].disabled = false;
-        n1[i].disabled = false;}
-
-    }
-      for(var i=0;i<n.length;i++){
-        if(n1[i].value == "Paper managment" ){
+    for(var i=0;i<n1.length;i++){
+        if(n1[i].value == "Make reports" || n1[i].value == "Request reviewers"){
         n1[i].checked = true;
-        n[i].disabled = true;
         n2[i].disabled = true;
+        n3[i].disabled = true;
+        if(n4[i]){n4[i].disabled = true;}
+
          }else{
         n1[i].checked = false;
-        n[i].disabled = false;
-        n2[i].disabled = false;}
+        n2[i].disabled = false;
+        n3[i].disabled = false;
+        if(n4[i]){n4[i].disabled = false;}
+    }
+
+    }
+    for(var i=0;i<n1.length;i++){
+        if(n3[i].value == "Make paper decision" || n3[i].value == "Selection of reviewers"){
+        n3[i].checked = true;
+        n1[i].disabled = true;
+        n2[i].disabled = true;
+        if(n4[i]){n4[i].disabled = true;}
+
+         }else{
+        n3[i].checked = false;
+        n1[i].disabled = false;
+        n2[i].disabled = false;
+        if(n4[i]){n4[i].disabled = false;}
+    }
+
+    }
+      for(var i=0;i<n1.length;i++){
+        if(n2[i].value == "Paper managment" ){
+        n2[i].checked = true;
+        n1[i].disabled = true;
+        n3[i].disabled = true;
+        if(n4[i]){n4[i].disabled = true;}
+
+         }else{
+        n2[i].checked = false;
+        n1[i].disabled = false;
+        n3[i].disabled = false;
+        if(n4[i]){n4[i].disabled = false;}
+    }
 
     }
 
