@@ -9,7 +9,7 @@
   
 </head>
 
-<body>
+<body onload="init()">
 
 <?php
 $servername = "localhost";
@@ -44,13 +44,13 @@ if ($conn->query($insr1) === TRUE) {
     <div id="role1">
         <label id="cp">Committee President</label>
         <input type="email" name="cp"  id="cpemail"><br/>
-     
-        <input type="checkbox" value="Paper managment" id="pmc" class="Checkbox1" disabled = true ><label id="pml" >Paper managment</label><br/>
+        <!-- onclick="makechanges(container,$(this))" -->
+        <input type="checkbox" value="Paper managment" id="pmc" class="Checkbox1" disabled="true" ><label id="pml" >Paper managment</label><br/>
         <input type="checkbox" value="Review" id="rc" class="Checkbox1"><label id="rl">Review</label><br/>
-        <input type="checkbox" value="Make paper decision" id="mdc" class="Checkbox1" disabled = true ><label id="mdl" >Make paper decision</label><br/>
+        <input type="checkbox" value="Make paper decision" id="mdc" class="Checkbox1"disabled="true" ><label id="mdl" >Make paper decision</label><br/>
         <input type="checkbox" value="Make reports" id="mrc" class="Checkbox1" checked="true"><label id="mrl" >Make reports</label><br/>
-        <input type="checkbox" value="Request reviewers" id="rrc" class="Checkbox1" checked="true"><label id="rrl" >Request reviewers</label><br/>
-        <input type="checkbox" value="Selection of reviewers" id="src" class="Checkbox1" disabled = true ><label id="srl">Selection of reviewers</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rrc" class="Checkbox1"checked="true" ><label id="rrl" >Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="src" class="Checkbox1" disabled="true"><label id="srl">Selection of reviewers</label><br/>
 
         <button type="button" id="test" value="click" onclick="loadDoc()">Done</button>
         <button type="button" id="reset1" value="click" onclick="document.getElementById('role1').style.display='none'">Delete</button>
@@ -67,17 +67,17 @@ if ($conn->query($insr1) === TRUE) {
         <label id="em">Editing Manager</label>
         <input type="email" name="em" id="ememail"><br/>
 
-        <input type="checkbox" value="Paper managment" id="pm1c" class="Checkbox2" checked="true"><label id="pm1l">Paper managment</label><br/>
+        <input type="checkbox" value="Paper managment" id="pm1c" class="Checkbox2" checked="true"><label id="pm1l" >Paper managment</label><br/>
         <input type="checkbox" value="Review" id="r1c" class="Checkbox2"><label id="r1l">Review</label><br/>
-        <input type="checkbox" value="Make paper decision" id="md1c" class="Checkbox2" disabled = true ><label id="md1l">Make paper decision</label><br/>
-        <input type="checkbox" value="Make reports" id="mr1c" class="Checkbox2" disabled = true><label id="mr1l">Make reports</label><br/>
-        <input type="checkbox" value="Request reviewers" id="rr1c" class="Checkbox2" disabled = true><label id="rr1l">Request reviewers</label><br/>
-        <input type="checkbox" value="Selection of reviewers" id="sr1c" class="Checkbox2" disabled = true ><label id="sr1l">Selection of reviewers</label><br/>
+        <input type="checkbox" value="Make paper decision" id="md1c" class="Checkbox2" disabled="true" ><label id="md1l">Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mr1c" class="Checkbox2" disabled="true" ><label id="mr1l">Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rr1c" class="Checkbox2" disabled="true"><label id="rr1l">Request reviewers</label><br/>
+        <input type="checkbox" value="Selection of reviewers" id="sr1c" class="Checkbox2" disabled="true"><label id="sr1l">Selection of reviewers</label><br/>
 
         <button type="button" id="test1" value="click" onclick="loadDoc1()">Done</button>
         <button type="button" id="reset1" value="click" onclick="document.getElementById('role2').style.display='none'">Delete</button>
 
-
+        <!-- onclick="deleterole('role2','2')" -->
 </div>
 </form>
 
@@ -88,15 +88,15 @@ if ($conn->query($insr1) === TRUE) {
  <label id="cce">Chapter Chief Editor</label>
         <input type="email" name="cce" id="cceemail"><br/>
 
-        <input type="checkbox" value="Paper managment" id="pm2c" class="Checkbox3" disabled = true><label id="pm2l">Paper managment</label><br/>
+        <input type="checkbox" value="Paper managment" id="pm2c" class="Checkbox3" disabled="true"><label id="pm2l">Paper managment</label><br/>
         <input type="checkbox" value="Review" id="r2c" class="Checkbox3"><label id="r2l">Review</label><br/>
-        <input type="checkbox" value="Make paper decision" id="md2c" class="Checkbox3" checked="true"><label id="md2l">Make paper decision</label><br/>
-        <input type="checkbox" value="Make reports" id="mr2c" class="Checkbox3" disabled = true><label id="mr2l">Make reports</label><br/>
-        <input type="checkbox" value="Request reviewers" id="rr2c" class="Checkbox3" disabled = true><label id="rr2l">Request reviewers</label><br/>
+        <input type="checkbox" value="Make paper decision" id="md2c" class="Checkbox3" checked="true" ><label id="md2l">Make paper decision</label><br/>
+        <input type="checkbox" value="Make reports" id="mr2c" class="Checkbox3"disabled="true" ><label id="mr2l">Make reports</label><br/>
+        <input type="checkbox" value="Request reviewers" id="rr2c" class="Checkbox3" disabled="true"><label id="rr2l">Request reviewers</label><br/>
         <input type="checkbox" value="Selection of reviewers" id="sr2c" class="Checkbox3" checked="true"><label id="sr2l">Selection of reviewers</label><br/>
 
-        <button type="button" id="test1" value="click" onclick="loadDoc2()">Done</button>
-        <button type="button" id="reset1" value="click" onclick="document.getElementById('role3').style.display='none'">Delete</button>
+        <button type="button" id="test1" value="click" onclick="updatecheck()">Done</button>
+        <button type="button" id="reset1" value="click" onclick="deleterole('role3','3')">Delete</button>
       
 </div>
 </form>
@@ -109,30 +109,212 @@ if ($conn->query($insr1) === TRUE) {
 <button type="button" id="reset" value="click" onclick="resetcheckboxes()">Reset</button>
 
 <button type="button" id="create" value="click" onclick="createrole()">create new role</button>
-<script src="createrole.js"></script>
+
 
 
 <script>
+
+           
             var n1 = document.getElementsByClassName('Checkbox1');
             var n2 = document.getElementsByClassName('Checkbox2');
             var n3 = document.getElementsByClassName('Checkbox3');
-            var n4 = document.getElementsByClassName('Checkbox4');
-            var n5 = document.getElementsByClassName('Checkbox5');
-            var n6 = document.getElementsByClassName('Checkbox6');
-            var n7 = document.getElementsByClassName('Checkbox7');
-            var n8 = document.getElementsByClassName('Checkbox8');
-            var n9 = document.getElementsByClassName('Checkbox9');
-            
+           
+                
+          
+            var container = document.getElementById('container');
+           
+        
+            var Narray = [n1,n2,n3]; // the default 3 forms 
+            var c = 3;
+            function createrole(){
+   
+   
+        c++;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+    if(xhttp.readyState==4 && xhttp.status==200){
+    }}
+    var content = "<form action=\"\" method=\"post\"><div id=\"role"+c+"\"><input type=\"text\"><br/><input type=\"email\"><br/><input type=\"checkbox\" value=\"Paper managment\" id=\"pm"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\"><label id=\"pm"+c+"l\">"+c+"Paper managment</label><br/><input type=\"checkbox\" value=\"Review\" id=\"r"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\"><label id=\"r"+c+"l\">Review</label><br/> <input type=\"checkbox\" value=\"Make paper decision\" id=\"md"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"md"+c+"l\">Make paper decision</label><br/>        <input type=\"checkbox\" value=\"Make reports\" id=\"mr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"mr"+c+"l\">Make reports</label><br/>   <input type=\"checkbox\" value=\"Request reviewers\" id=\"rr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"rr"+c+"l\">Request reviewers</label><br/>  <input type=\"checkbox\" value=\"Selection of reviewers\" id=\"sr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"sr"+c+"l\">Selection of reviewers</label><br/> <button type=\"button\" id=\"test1\" value=\"click\" onclick=\"loadDoc"+c+"()\">Done</button></div></form><button type=\"button\" id=\"reset1\" value=\"click\" onclick=\"document.getElementById('role"+c+"').style.display='none'\">Delete</button></div></form>";
+    xhttp.open("GET","createrole.php?content=" + content,true);
+    xhttp.send();
+    var div = document.getElementById('container');
+
+    div.insertAdjacentHTML('beforeend', content );
+
+    var newN = 'n' + (Narray.length + 1);
+      
+      var Narraylength = Narray.length +1;
+      var cname = "Checkbox"+Narraylength;
+      newN = document.getElementsByClassName(cname);
+    
+      $(newN).on('click', updatecheck);
+      Narray.push(newN);
+      for(var i=0;i<Narray.length;i++){
+          for(var j=0;j<6;j++){
+              if(Narray[i])
+              {if(Narray[i][j].checked==true){
+                  newN[j].disabled=true;
+              }}
+              console.log(Narray);
+            //   else{
+            //     newN[j].disabled=true;
+            //   }
+          }
+      }
+ 
+      console.log(Narray);
+
+}
+
+
+
+function init(){
+           
+
+
+    for(var j=0;j<Narray.length;j++){
+            for(var i=0;i<6;i++)
+          { Narray[j][i].onclick = updatecheck;}
+  
+        }
+
+
+}
+
+
+function updatecheck() {
+  
+    // var form = this.form;
+    
+
+    if ( this.checked ) {
+      
+        for(var j=1;j<=Narray.length;j++){
+          
+            // if (j == getparent(this)) { continue ; }
+            var e =$(container).find("input.Checkbox"+j+"[value='"+this.value+"']");
+        // var ivalue =getparent(e); 
+        // if (j == ivalue ) { continue; }
+      e.not(this).attr('disabled', true);
+    
+        }
+    } else {
+        for(var j=1;j<=Narray.length;j++){
+            var e =$(container).find("input.Checkbox"+j+"[value='"+this.value+"']");
+         
+      e.not(this).attr('disabled', false);
+    
+        }
+  
+    }
+    
+}
+
+// function getparent(e){
+//     console.log(e);
+//     for(var i=1;i<=Narray.length;i++){
+//         if( Narray[i]){
+//         for(var j=1;j<6;j++){
+           
+//             if(Narray[i][j]==e){
+//                 // $(Narray[i][j]).attr('class','Checkbox'+i)==$(e).attr('class','Checkbox'+i)
+//             return i;}
+// }}}}
+
+
+// function deleterole(divId,nIndex){
+//     var D_id=document.getElementById(divId);
+   
+//     for(var i=1;i<=Narray.length;i++){
+        
+//           for(var j=1;j<6;j++){
+//               if(Narray[nIndex][j].checked==true){
+//                  while(i!=nIndex){Narray[i][j].disabled=false;}
+//               }
+//           }
+//       }
+//       D_id.remove();
+//     Narray.pop(Narray[nIndex]);
+//     for(var i=1;i<=Narray.length;i++)
+//     {console.log(Narray[i]);}
+
+    
+
+    
+
+// }
+function deleterole(divId,nIndex){
+    var D_id=document.getElementById(divId);
+    var n_id = document.getElementsByClassName('Checkbox'+nIndex);
+    for(var j=0;j<n_id.length;j++){
+        for(var i=0;i<Narray.length;i++){
+
+            if(n_id[j].checked==true){
+                Narray[i][j].disabled=false;
+            }
+        //    ($('.Checkbox'+nIndex+':checked').map(function() {
+        //     var e =$(container).find("input.Checkbox"+i+"[value='"+this+"']");
+        // e.not(this).attr('disabled', false);
+        // }));
+           
+      
+        //   if(Narray[nIndex][j].checked==true){
+        //      while(i!=nIndex){Narray[i][j].disabled=false;}
+          
+      }
+    }
+   
+      
+      D_id.remove();
+    Narray.pop(Narray[nIndex]);
+    for(var i=1;i<=Narray.length;i++)
+    {console.log(Narray[i]);}
+
+    // for(var j=1;j<=Narray.length;j++){
+          
+          // if (j == getparent(this)) { continue ; }
+        //   var e =$(container).find("input.Checkbox"+j+"[value='"+this.value+"']");
+      // var ivalue =getparent(e); 
+      // if (j == ivalue ) { continue; }
+    // e.not(this).attr('disabled', true);
+  
+      }
+    
+
+    
+
+
 
 
 ////////////////////////////////////Committee President functions //////////////////////////////////////
+function makechanges(){
+   
+    var form = this.form;
 
+    if (this.checked) {
+        
+        for(var j=1;j<=Narray.length;j++){
+            for(var i=1;i<=Narray[j].length;i++)
+          {  $(Narray[j][i]).find("input.Checkbox"+i+"[value='"+this.value+"']").attr('disabled', true);}
+    
+        }
+    } else {
+        for(var j=1;j<=Narray.length;j++){
+            for(var i=1;i<=Narray[j].length;i++)
+          {  $(Narray[j][i]).find("input.Checkbox"+i+"[value='"+this.value+"']").attr('disabled', false);}
+  
+        }
+    }
+
+
+}
 function loadDoc() {
 
             for(var i=0;i<n1.length;i++){
                  n2[i].disabled = false;
                  n3[i].disabled = false;
-                 if(n4[i]){n4[i].disabled = false;}
+                //  if(n4[i]){n4[i].disabled = false;}
 
 
             }
@@ -142,7 +324,7 @@ function loadDoc() {
                 if( n2[i].checked == true){
                  n1[i].disabled = true;
                  n3[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -150,7 +332,7 @@ function loadDoc() {
                 if( n3[i].checked == true){
                  n1[i].disabled = true;
                  n2[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -172,7 +354,7 @@ function loadDoc() {
                 if( n1[i].value == funn[x]){
                     n2[i].disabled = true;
                     n3[i].disabled = true;
-                    if(n4[i]){n4[i].disabled = true;}
+                    // if(n4[i]){n4[i].disabled = true;}
                     
 
 
@@ -208,7 +390,7 @@ function loadDoc1() {
             for(var i=0;i<n1.length;i++){
                  n1[i].disabled = false;
                  n3[i].disabled = false;
-                 if(n4[i]){n4[i].disabled = false;}
+                //  if(n4[i]){n4[i].disabled = false;}
 
 
             }
@@ -218,7 +400,7 @@ function loadDoc1() {
                 if( n1[i].checked == true){
                  n2[i].disabled = true;
                  n3[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -226,7 +408,7 @@ function loadDoc1() {
                 if( n3[i].checked == true){
                  n1[i].disabled = true;
                  n2[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -251,7 +433,7 @@ function loadDoc1() {
                 if( n2[i].value == funn[x]){
                  n1[i].disabled = true;
                  n3[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -276,7 +458,7 @@ function loadDoc2() {
             for(var i=0;i<n1.length;i++){
                  n1[i].disabled = false;
                  n2[i].disabled = false;
-                 if(n4[i]){n4[i].disabled = false;}
+                //  if(n4[i]){n4[i].disabled = false;}
 
 
             }
@@ -285,7 +467,7 @@ function loadDoc2() {
                 if( n1[i].checked == true){
                  n2[i].disabled = true;
                  n3[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -293,7 +475,7 @@ function loadDoc2() {
                 if( n2[i].checked == true){
                  n1[i].disabled = true;
                  n3[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -318,7 +500,7 @@ function loadDoc2() {
                 if( n3[i].value == funn[x]){
                  n1[i].disabled = true;
                  n2[i].disabled = true;
-                 if(n4[i]){n4[i].disabled = true;}
+                //  if(n4[i]){n4[i].disabled = true;}
 
                 }
             }
@@ -338,52 +520,95 @@ function resetcheckboxes() {
 // var n2 = document.getElementsByClassName('Checkbox2');
 // var n3 = document.getElementsByClassName('Checkbox3');
 // var n4 = document.getElementsByClassName('Checkbox4');
+for(var i=0;i<Narray.length;i++){
+        for(var j=0;j<Narray[i].length;j++){
+            Narray[i][j].checked=false;
+            Narray[i][j].disabled=false;
+
+
+         }
+
+    }
+   
+    // var e =$(container).find("input.Checkbox"+j+"[value='"+this.value+"']");++++++++++++++++++++++ 
+                // Narray[x][i].disabled=true;++++++++++++++++++++
+
+
+        // var ivalue =getparent(e); 
+        // if (j == ivalue ) { continue; }
+      
+
 
     for(var i=0;i<n1.length;i++){
         if(n1[i].value == "Make reports" || n1[i].value == "Request reviewers"){
         n1[i].checked = true;
         n2[i].disabled = true;
         n3[i].disabled = true;
-        if(n4[i]){n4[i].disabled = true;}
+            // var e1 =$(container).find("input.Checkbox2 [value='Make reports']");
+            // var e2 =$(container).find("input.Checkbox3 [value='Request reviewers']");
 
-         }else{
-        n1[i].checked = false;
-        n2[i].disabled = false;
-        n3[i].disabled = false;
-        if(n4[i]){n4[i].disabled = false;}
-    }
+            //     $(e1).attr('disabled', true);
+            //     $(e2).attr('disabled', true);
+
+            
+         
+        }
+    //      else{
+    //     n1[i].checked = false;
+    //     n2[i].disabled = false;
+    //     n3[i].disabled = false;
+    //     // if(n4[i]){n4[i].disabled = false;}
+    // }
 
     }
-    for(var i=0;i<n1.length;i++){
+    for(var i=0;i<n3.length;i++){
         if(n3[i].value == "Make paper decision" || n3[i].value == "Selection of reviewers"){
         n3[i].checked = true;
+        // for(var x=1;x<Narray.length;x++){
+        //     var e =$(container).find("input.Checkbox"+x+"[value='Selection of reviewers']");
+        //         $(e).not(this).attr('disabled', true);
+            
+        //  }
         n1[i].disabled = true;
         n2[i].disabled = true;
-        if(n4[i]){n4[i].disabled = true;}
+        // if(n4[i]){n4[i].disabled = true;}
 
-         }else{
-        n3[i].checked = false;
-        n1[i].disabled = false;
-        n2[i].disabled = false;
-        if(n4[i]){n4[i].disabled = false;}
-    }
+         }
+    //      else{
+    //     n3[i].checked = false;
+    //     n1[i].disabled = false;
+    //     n2[i].disabled = false;
+    //     // if(n4[i]){n4[i].disabled = false;}
+    // }
 
     }
-      for(var i=0;i<n1.length;i++){
+      for(var i=0;i<n2.length;i++){
         if(n2[i].value == "Paper managment" ){
         n2[i].checked = true;
         n1[i].disabled = true;
         n3[i].disabled = true;
-        if(n4[i]){n4[i].disabled = true;}
+        // if(n4[i]){n4[i].disabled = true;}
 
-         }else{
-        n2[i].checked = false;
-        n1[i].disabled = false;
-        n3[i].disabled = false;
-        if(n4[i]){n4[i].disabled = false;}
+         }
+    //      else{
+    //     n2[i].checked = false;
+    //     n1[i].disabled = false;
+    //     n3[i].disabled = false;
+    //     // if(n4[i]){n4[i].disabled = false;}
+    // }
+
+    }
+    for(var i=3;i<Narray.length;i++){
+        for(var j=0;j<6;j++){
+            if(j==1){continue;}
+           else{ Narray[i][j].checked=false;
+            Narray[i][j].disabled=true;}
+
+        }
+       
     }
 
-    }
+    
 
 }
 
