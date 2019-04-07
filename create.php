@@ -36,14 +36,14 @@ if ($conn->query($insr1) === TRUE) {
 }
 ?>
 
-    <label>Now choose you're structure</label>
+    <label>Now choose you're structure for <?php echo $_GET['name'] ?></label>
 
     <!-- ////////////////////////////////////////////Committee President///////////////////////////////////////// -->
     <div id="container">
-    <form action="" method="post">
+    <form action="recordrole.php" method="post">
     <div id="role1">
-        <label id="cp">Committee President</label>
-        <input type="email" name="cp"  id="cpemail"><br/>
+        <label id="R1" value="Committee President">Committee President</label>
+        <input type="email" name="cp"  id="email1"><br/>
         <!-- onclick="makechanges(container,$(this))" -->
         <input type="checkbox" value="Paper managment" id="pmc" class="Checkbox1" disabled="true" ><label id="pml" >Paper managment</label><br/>
         <input type="checkbox" value="Review" id="rc" class="Checkbox1"><label id="rl">Review</label><br/>
@@ -64,8 +64,8 @@ if ($conn->query($insr1) === TRUE) {
  <form action="" method="post">
    <div id="role2"> 
 
-        <label id="em">Editing Manager</label>
-        <input type="email" name="em" id="ememail"><br/>
+        <label id="R2" value="Editing Manager">Editing Manager</label>
+        <input type="email" name="em" id="email2"><br/>
 
         <input type="checkbox" value="Paper managment" id="pm1c" class="Checkbox2" checked="true"><label id="pm1l" >Paper managment</label><br/>
         <input type="checkbox" value="Review" id="r1c" class="Checkbox2"><label id="r1l">Review</label><br/>
@@ -85,8 +85,8 @@ if ($conn->query($insr1) === TRUE) {
     
  <form action="" method="post">
 <div id="role3">
- <label id="cce">Chapter Chief Editor</label>
-        <input type="email" name="cce" id="cceemail"><br/>
+ <label id="R3" value="Chapter Chief Editor">Chapter Chief Editor</label>
+        <input type="email" name="cce" id="email3"><br/>
 
         <input type="checkbox" value="Paper managment" id="pm2c" class="Checkbox3" disabled="true"><label id="pm2l">Paper managment</label><br/>
         <input type="checkbox" value="Review" id="r2c" class="Checkbox3"><label id="r2l">Review</label><br/>
@@ -95,10 +95,12 @@ if ($conn->query($insr1) === TRUE) {
         <input type="checkbox" value="Request reviewers" id="rr2c" class="Checkbox3" disabled="true"><label id="rr2l">Request reviewers</label><br/>
         <input type="checkbox" value="Selection of reviewers" id="sr2c" class="Checkbox3" checked="true"><label id="sr2l">Selection of reviewers</label><br/>
 
-        <button type="button" id="test1" value="click" onclick="updatecheck()">Done</button>
+        <button type="button" id="test1" value="click" onclick="sendData()">Done</button>
         <button type="button" id="reset1" value="click" onclick="deleterole('role3','3')">Delete</button>
+
       
 </div>
+<button type="submit" id="saveS" name="saveS" value="submit">Doneee</button>
 </form>
 
 
@@ -107,6 +109,7 @@ if ($conn->query($insr1) === TRUE) {
 
 </div>
 <button type="button" id="reset" value="click" onclick="resetcheckboxes()">Reset</button>
+
 
 <button type="button" id="create" value="click" onclick="createrole()">create new role</button>
 
@@ -135,7 +138,8 @@ if ($conn->query($insr1) === TRUE) {
     xhttp.onreadystatechange = function(){
     if(xhttp.readyState==4 && xhttp.status==200){
     }}
-    var content = "<form action=\"\" method=\"post\"><div id=\"role"+c+"\"><input type=\"text\"><br/><input type=\"email\"><br/><input type=\"checkbox\" value=\"Paper managment\" id=\"pm"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\"><label id=\"pm"+c+"l\">"+c+"Paper managment</label><br/><input type=\"checkbox\" value=\"Review\" id=\"r"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\"><label id=\"r"+c+"l\">Review</label><br/> <input type=\"checkbox\" value=\"Make paper decision\" id=\"md"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"md"+c+"l\">Make paper decision</label><br/>        <input type=\"checkbox\" value=\"Make reports\" id=\"mr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"mr"+c+"l\">Make reports</label><br/>   <input type=\"checkbox\" value=\"Request reviewers\" id=\"rr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"rr"+c+"l\">Request reviewers</label><br/>  <input type=\"checkbox\" value=\"Selection of reviewers\" id=\"sr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"sr"+c+"l\">Selection of reviewers</label><br/> <button type=\"button\" id=\"test1\" value=\"click\" onclick=\"loadDoc"+c+"()\">Done</button></div></form><button type=\"button\" id=\"reset1\" value=\"click\" onclick=\"document.getElementById('role"+c+"').style.display='none'\">Delete</button></div></form>";
+    // <form action=\"\" method=\"post\"> </form>
+    var content = "<form action=\"\" method=\"post\"><div id=\"role"+c+"\"><input type=\"text\" id=\"R"+c+"\"><br/><input type=\"email\" id=\"email"+c+"\"><br/><input type=\"checkbox\" value=\"Paper managment\" id=\"pm"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\"><label id=\"pm"+c+"l\">"+c+"Paper managment</label><br/><input type=\"checkbox\" value=\"Review\" id=\"r"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\"><label id=\"r"+c+"l\">Review</label><br/> <input type=\"checkbox\" value=\"Make paper decision\" id=\"md"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"md"+c+"l\">Make paper decision</label><br/>        <input type=\"checkbox\" value=\"Make reports\" id=\"mr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"mr"+c+"l\">Make reports</label><br/>   <input type=\"checkbox\" value=\"Request reviewers\" id=\"rr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"rr"+c+"l\">Request reviewers</label><br/>  <input type=\"checkbox\" value=\"Selection of reviewers\" id=\"sr"+c+"c\" class=\"Checkbox"+c+"\" onclick=\"updatecheck()\" ><label id=\"sr"+c+"l\">Selection of reviewers</label><br/> <button type=\"button\" id=\"test1\" value=\"click\" onclick=\"loadDoc"+c+"()\">Done</button></div></form><button type=\"button\" id=\"reset1\" value=\"click\" onclick=\"document.getElementById('role"+c+"').style.display='none'\">Delete</button></div></form>";
     xhttp.open("GET","createrole.php?content=" + content,true);
     xhttp.send();
     var div = document.getElementById('container');
@@ -209,7 +213,7 @@ function updatecheck() {
   
     }
     
-}
+
 
 // function getparent(e){
 //     console.log(e);
@@ -241,7 +245,7 @@ function updatecheck() {
 
     
 
-    
+}
 
 // }
 function deleterole(divId,nIndex){
@@ -309,71 +313,87 @@ function makechanges(){
 
 
 }
+function sendData(){
+    
+			var funcs = [];
+		    $('input[type=checkbox]').each(function(){
+			    if($(this).is(':checked')){
+				    funcs.push($(this).val());
+				}
+			})
+		
+			var formData = new FormData();
+            formData.append('funcs', funcs.join(', '));
+            console.log(funcs);
+            $.ajax({
+				type: 'post',
+				url: 'process.php',
+				data: formData,
+				contentType: false,
+				processData: false,
+				success: function(response){
+					alert(response.responseText)
+				},
+				error: function(response){
+					alert(response.responseText)
+				}
+			});
+		// });
+
+}
+
+
+
+
 function loadDoc() {
 
-            for(var i=0;i<n1.length;i++){
-                 n2[i].disabled = false;
-                 n3[i].disabled = false;
-                //  if(n4[i]){n4[i].disabled = false;}
+       
+
+    var formsE = document.getElementsByTagName("form");
+    // console.log(formsE);
+    // var roleArray = [email1,email2,email3];           
+    // var funcArray = [email1,email2,email3];           
+
+    // var email1 = document.getElementById("cpemail").value;
+    // var email2 = document.getElementById("ememail").value;
+    // var email3 = document.getElementById("cceemail").value;
+    // var emailArray = [email1,email2,email3];
 
 
-            }
+    for(var i=1;i<=formsE.length;i++){
+        // var e =$(container).find("input.Checkbox"+j+"[value='"+this.value+"']");
+        // $(formsE[i]).find("input.Checkbox"+j+"[value='"+this.value+"']");
 
-            
-            for(var i=0;i<n1.length;i++){
-                if( n2[i].checked == true){
-                 n1[i].disabled = true;
-                 n3[i].disabled = true;
-                //  if(n4[i]){n4[i].disabled = true;}
-
-                }
-            }
-            for(var i=0;i<n1.length;i++){
-                if( n3[i].checked == true){
-                 n1[i].disabled = true;
-                 n2[i].disabled = true;
-                //  if(n4[i]){n4[i].disabled = true;}
-
-                }
-            }
-
-    var email1 = document.getElementById("cpemail").value ;
-    var role1 = document.getElementById("cp").innerHTML ;
-    var func1 = ($('.Checkbox1:checked').map(function() {
-    return this.value; }).get().join(','));
-     
-    var xhttp = new XMLHttpRequest();
+        var funcValue = ($('.Checkbox'+i+':checked').map(function() {
+         return this.value; }).get().join(','));
+         if(i>3){var roleValue = document.getElementById("R"+i).value ;}
+         else {var roleValue = document.getElementById("R"+i).innerHTML ;}
+         var emailValue = document.getElementById("email"+i).value;
+         var Jname = "<?php echo $_GET['name'] ?>";
+         console.log(funcValue,roleValue,emailValue,Jname)
+   
+         var xhttp = new XMLHttpRequest();
      xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-         var r=this.responseText;
-         var funn = r.split(',');
+        //  var r=this.responseText;
+        //  var funn = r.split(',');
       
-       for(var x=0;x<funn.length;x++){
-
-        for(var i=0;i<n1.length;i++){
-                if( n1[i].value == funn[x]){
-                    n2[i].disabled = true;
-                    n3[i].disabled = true;
-                    // if(n4[i]){n4[i].disabled = true;}
-                    
-
-
-                //     for(var j=2;j<=4;j++){
-                //         // var z="n"+j;
-                //         console.log(narray[j]);
-                //         narray[j][i].disabled = true;
-                // //  n2[i].disabled = true;
-                // //  n4[i].disabled = true;
-                //     }
-                }
-            }
-
-       }
+   
        
     } 
   };
-  xhttp.open("GET", "recordrole.php?func1="+func1+"&email1="+email1+"&role1="+role1, true);
+  xhttp.open("GET", "recordrole.php?func1="+funcValue+"&email1="+emailValue+"&role1="+roleValue+"&Jname1="+Jname, true);
   xhttp.send();
+   
+   
+   
+        }
+
+    // var role1 = document.getElementById("cp").innerHTML ;
+    // var func1 = ($('.Checkbox1:checked').map(function() {
+    // return this.value; }).get().join(','));
+     
+  
 }
 
 
